@@ -1,95 +1,25 @@
 <?php
 
-/**
- * Structure Models using PHP Data Objects (PDO)
- */
+class PostModel extends Db {
+    public $table = 'post_data';
+    public $primaryKey = 'id';
 
-class PostModel
-{
+    public function getPost($id) {
+        return $this->where('id =' . $id)->find();
+    }
 
-	private function conn()
-	{
+    public function getAllPost() {
+        return $this->orderby('id desc')->limit(10)->findAll();
+    }
 
-		try {
-			$conn = new PDO('mysql:host=localhost;dbname=' . DB_NAME, DB_USER, DB_PASS);
-			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			return $conn;
-		} catch(PDOException $e) {
-			echo "Connection failed: " . $e->getMessage();
-		}
+    public function insertPost($data){ 
+        $this->body = $data;
+        return $this->insert();
+    }
 
-	}
-
-	public function total()
-	{
-
-		$conn = $this->conn();
-		$stmt = $conn->prepare("SELECT post_id FROM posts");
-		$stmt->execute();
-		$result = $stmt->rowCount();
-
-		return $result;
-
-	}
-
-	public function list($per_page, $order)
-	{
-
-		$conn = $this->conn();
-		$stmt = $conn->prepare("SELECT post_id, post_title, post_content FROM posts ORDER BY post_id DESC LIMIT $per_page OFFSET " . $order);
-		$stmt->execute();
-		$result = $stmt->fetchAll();
-
-		return $result;
-
-	}
-
-	public function view($post_id)
-	{
-
-		$conn = $this->conn();
-		$stmt = $conn->prepare("SELECT post_id, post_title, post_content FROM posts WHERE post_id = :post_id");
-		$stmt->bindParam(':post_id', $post_id);
-		$stmt->execute();
-		$result = $stmt->fetch();
-
-		return $result;
-
-	}
-
-	public function add()
-	{
-
-		$conn = $this->conn();
-		$stmt = $conn->prepare("INSERT INTO posts (post_title, post_content) VALUES (:post_title, :post_content)");
-		$stmt->bindParam(':post_title', $_POST['title']);
-		$stmt->bindParam(':post_content', $_POST['content']);
-		$stmt->execute();
-
-		return $conn->lastInsertId();
-
-	}
-
-	public function edit($post_id)
-	{
-
-		$conn = $this->conn();
-		$stmt = $conn->prepare("UPDATE posts SET post_title = :post_title, post_content = :post_content WHERE post_id = :post_id");
-		$stmt->bindParam(':post_title', $_POST['title']);
-		$stmt->bindParam(':post_content', $_POST['content']);
-		$stmt->bindParam(':post_id', $post_id);
-		$stmt->execute();
-
-	}
-
-	public function delete($post_id)
-	{
-
-		$conn = $this->conn();
-		$stmt = $conn->prepare("DELETE FROM posts WHERE post_id = :post_id");
-		$stmt->bindParam(':post_id', $post_id);
-		$stmt->execute();
-
-	}
-
+    public function getPostm($id) {
+        // $this->db->join('post_id pi', 'pi.post_id=p.ID', 'INNER');
+        // $this->db->where('new_id', $id);
+        // return $this->db->getOne('posts p');
+    }
 }
