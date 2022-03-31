@@ -46,7 +46,7 @@ class Basic_Form {
 
     public function button($type,  $label, $class='btn btn-primary btn-lg') {
         ?>
-		<button class="w-100 <?=$class;?>"  <?=!empty($type) ? 'type="'. $type.'"' : 'type="submit"';?>><?=$label;?></button>
+		<button class=" <?=$class;?>"  <?=!empty($type) ? 'type="'. $type.'"' : 'type="button"';?>><?=$label;?></button>
 		<?php
     }
 

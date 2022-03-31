@@ -12,9 +12,9 @@ class JsonController {
     public function index() {
         $data['post'] = $this->post->getAllPost();
         // print_r($data);exit;
-        view('templates/header', $data);
-        view('home/json', $data);
-        view('templates/footer', $data);
+        view('template/header', $data);
+        view('json', $data);
+        view('template/footer', $data);
     }
 
     public function raw() {

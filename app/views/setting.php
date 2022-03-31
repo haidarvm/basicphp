@@ -28,11 +28,14 @@ require_once 'template/header.php';
                             $form->open('', "needs-validation");
                             $form->input('text', 'alarm_01h_status', 'Alarm 01h Status');
                             echo '<div class="row g-3">';
-                            $form->input('text', 'alarm', 'Alarm', '', false, 'col-md-4');
-                            $form->input('text', 'alarm2', 'Alarm 2', '', false, 'col-md-4');
-                            $form->input('text', 'alarm2', 'Alarm 3', '', false, 'col-md-4');
+                            $form->input('text', 'alarm', 'Alarm', '', true, 'col-md-4');
+                            $form->input('text', 'alarm2', 'Alarm 2', '', true, 'col-md-4');
+                            $form->input('text', 'alarm2', 'Alarm 3', '', true, 'col-md-4');
                             echo '</div>';
-                            $form->button('submit',"Save", 'btn btn-danger btn-lg');
+                            echo '<div class="d-flex flex-column text-center px-5 mt-3 mb-3"> <small class="agree-text">By Changing setting you  agree to the changes and consequence of any erros</small> <a href="#" class="terms">Terms & Conditions</a></div>
+                            <div class="d-grid gap-2 col-6 mx-auto">';
+                            $form->button('submit',"Submit", 'btn btn-danger btn-lg');
+                            echo '</div>';
                             ?>
                         </div>
                         </form>
