@@ -35,7 +35,7 @@ function indoDate($date) {
 }
 
 function tglJamDate($date) {
-    return date('d-M-Y H:i', strtotime($date));
+    return date('d-M-Y H:i:s', strtotime($date));
     // return strftime('%u %b %y', strtotime($date));
     // return time_elapsed_string($date);
 }
