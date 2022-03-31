@@ -6,9 +6,9 @@
     <meta name="description" content="">
     <meta name="author" content="haidarvm">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Basic · Bootstrap v5.1</title>
+    <title>Basic-<?=$page_title;?></title>
     <!-- Bootstrap core CSS -->
-    <link href="<?=URL;?>css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?=URL;?>assets/css/bootstrap.min.css" rel="stylesheet">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -25,7 +25,8 @@
     </style>
     
     <!-- Custom styles for this template -->
-    <link href="<?=URL;?>css/navbar-top-fixed.css" rel="stylesheet">
+    <?php echo !empty($css) ? $css : "" ;?>
+    <link href="<?=URL;?>assets/css/custom.css" rel="stylesheet">
   </head>
   <body>
     

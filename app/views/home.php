@@ -1,17 +1,8 @@
-<?php
-// Show Header and Menu
-require_once 'templates/header.php';
-require_once 'templates/menu.php';
-?>
-  <!-- Page Content -->
-  <div class="row">
+<!-- Page Content -->
+<div class="row">
     <div class="col-lg-12 text-center">
-      <h1 class="mt-5">BasicPHP Starter App</h1>
-      <p>Welcome to the BasicPHP Starter Application!</p>
-      <p>This application can be used as a foundation in building web applications or API's using BasicPHP.</p>
+        <h1 class="mt-5">BasicPHP Starter App</h1>
+        <p>Welcome to the BasicPHP Starter Application!</p>
+        <p>This application can be used as a foundation in building web applications or API's using BasicPHP.</p>
     </div>
-  </div>
-<?php
-// Show Footer
-require_once 'templates/footer.php';
-?>
+</div>

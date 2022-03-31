@@ -2,70 +2,63 @@
 
 /**
  * Form Builder Plugin
- * This class plugin builds a Bootstrap-based form.
+ * This class plugin builds a Bootstrap 5 form.
+ *
  * @package  Form Builder
- * @author   Raymund John Ang <raymund@open-nis.org>
+ *
+ * @author   Raymund John Ang edit by haidar1 <raymund@open-nis.org>
  * @license  MIT License
  */
 
-class Basic_Form
-{
-
-	public function open($class='form-horizontal', $method='post')
-	{
-		?>
-		<form class="<?= $class ?>" action="" method="<?= $method ?>">
+class Basic_Form {
+    public function open($action, $class='form-horizontal', $method='post') {
+        ?>
+		<form class="<?= $class ?>" action="<?=!empty($action) ? $action: '#';?>" method="<?= $method ?>">
 		<?php
-	}
+    }
 
-	public function input($type, $name, $label, $value=NULL, $required=FALSE)
-	{
-		?>
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="<?= $name ?>"><?= $label ?>:</label>
-			<div class="col-sm-10">
-				<input type="<?= $type ?>" class="form-control" id="<?= $name ?>" placeholder="Enter <?= $label ?>" name="<?= $name ?>" value="<?= $value ?>" <?php if ($required === TRUE) echo 'required'; ?> />
+    public function input($type, $name, $label, $value=null, $required=false, $col=null, $style=null) {
+        ?>
+		<div class="<?=!empty($col) ? $col : 'col-12';?> mb-3">
+			<label for="<?= $name ?>" class="form-label"><?= $label ?>:</label>
+			<input type="<?= $type ?>" class="form-control" id="<?= $name ?>" placeholder="<?= $label ?>" name="<?= $name ?>" value="<?= $value ?>" <?php if ($required === true) {
+            echo 'required';
+        } ?> />
+			<div class="invalid-feedback">
+				Please enter your <?=$label;?>.
 			</div>
 		</div>
 		<?php
-	}
+    }
 
-
-	public function textArea($name, $label, $value=NULL, $required=FALSE)
-	{
-		?>
+    public function textArea($name, $label, $value=null, $required=false) {
+        ?>
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="<?= $name ?>"><?= $label ?>:</label>
 			<div class="col-sm-10"> 
-				<textarea class="form-control" rows="5" id="<?= $name ?>" placeholder="Enter <?= $label ?>" name="<?= $name ?>" <?php if ($required === TRUE) echo 'required'; ?>><?= $value ?></textarea>
+				<textarea class="form-control" rows="5" id="<?= $name ?>" placeholder="Enter <?= $label ?>" name="<?= $name ?>" <?php if ($required === true) {
+            echo 'required';
+        } ?>><?= $value ?></textarea>
 			</div>
 		</div>
 		<?php
-	}
+    }
 
-	public function button($name, $label, $class='btn btn-default')
-	{
-		?>
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="<?= $class ?>" name="<?= $name ?>"><?= $label ?></button>
-			</div>
-		</div>
+    public function button($type,  $label, $class='btn btn-primary btn-lg') {
+        ?>
+		<button class="w-100 <?=$class;?>"  <?=!empty($type) ? 'type="'. $type.'"' : 'type="submit"';?>><?=$label;?></button>
 		<?php
-	}
+    }
 
-	public function csrfToken()
-	{
-		?>
+    public function csrfToken() {
+        ?>
 		<input type="hidden" name="csrf-token" value="<?= Basic::csrfToken() ?>">
 		<?php
-	}
+    }
 
-	public function close()
-	{
-		?>
+    public function close() {
+        ?>
 		</form>
 		<?php
-	}
-
+    }
 }
