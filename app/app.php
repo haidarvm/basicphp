@@ -7,6 +7,10 @@
 */
 
 define('DB_NAME', 'mini'); // Sample database name
+define('URL_PROTOCOL', '//');
+define('URL_DOMAIN', $_SERVER['HTTP_HOST']);
+// define('URL_SUB_FOLDER', str_replace(URL_PUBLIC_FOLDER, '', dirname($_SERVER['SCRIPT_NAME'])));
+define('URL', URL_PROTOCOL . URL_DOMAIN .'/');
 define('DB_USER', 'root'); // Sample database username
 define('DB_PASS', 'Bismillah'); // Sample database password
 define('DB_PREFIX', 'wput_'); // Sample database prefix

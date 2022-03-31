@@ -10,24 +10,23 @@ class JsonController {
         $this->request =  Request::createFromGlobals();
     }
     public function index() {
-        $number = rand(1, 7050);
-        $data['number'] = $number;
-        // $data['post'] = $this->post->getPost($number);
-        $data['post'] = $this->post->getPost($number)->data;
-        // echo json_encode( $data['post']);exit;
-        Basic::view('news_view', $data);
+        $data['post'] = $this->post->getAllPost();
+        // print_r($data);exit;
+        view('templates/header', $data);
+        view('home/json', $data);
+        view('templates/footer', $data);
     }
 
     public function raw() {
         $raw = json_decode($this->request->getContent(), true);
-        if(!empty($raw)) {
+        if (!empty($raw)) {
             // print_r($raw);
             $headers = $this->request->headers->all();
-            $data['headers'] = json_encode($headers); 
+            $data['headers'] = json_encode($headers);
             $data['body'] = json_encode($raw);
             $this->post->insert($data);
-            $raw['message'] = "success";
-            $raw["body"] = $data['body'];
+            $raw['message'] = 'success';
+            $raw['body'] = $data['body'];
         } else {
             $raw['message'] = 'empty';
         }

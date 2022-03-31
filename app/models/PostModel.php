@@ -9,7 +9,7 @@ class PostModel extends Db {
     }
 
     public function getAllPost() {
-        return $this->orderby('id desc')->limit(10)->findAll();
+        return $this->orderByDesc('id')->limit(10)->get();
     }
 
     public function insertPost($data){ 
