@@ -29,8 +29,7 @@ require_once 'template/header.php';
                         <hr/>
                         <div class="row g-3">
                             <?php
-                            // echo $setting,'station_id) ? $setting,'station_id : '';
-                            // print_r($setting);
+                            // echo checkVal($setting,'dns');
                             // print_r($setting);exit;
                             // echo checkVal($setting,'station_id');exit;
                             $form = new Basic_Form;
@@ -59,12 +58,12 @@ require_once 'template/header.php';
                             $form->open('', "needs-validation form2");
                             echo '<h5 class="mb-3 fw-bold text-center mt-2"><i class="fa-solid fa-wifi fa-xs text-danger me-2"></i> GPRS</h5>'; // GPRS
                             echo '<hr class=""/><div class="row g-3">';
-                            $form->input('text', 'apn', 'APN',checkVal($setting,'apn', 'indosatgprs'),'', 'col-sm-6');
+                            $form->input('text', 'apn', 'APN',checkVal($setting,'apn', 'indosatgprs'),true, 'col-sm-6');
                             $form->input('text', 'dns', "DNS",checkVal($setting,'dns','8.8.8.8'),'', 'col-sm-6');
                             echo '</div>';
                             echo '<div class="row g-3">';
-                            $form->input('text', 'password_gprs', 'Password',checkVal($setting,'password_gprs', 'indosatgprs'), '', 'col-sm-6');
-                            $form->input('text', 'user', 'User', checkVal($setting,'user', 'indosatgprs'), '', 'col-sm-6');
+                            $form->input('text', 'password_gprs', 'Password',checkVal($setting,'password_gprs', 'indosatgprs'), true, 'col-sm-6');
+                            $form->input('text', 'user', 'User', checkVal($setting,'user', 'indosatgprs'), true, 'col-sm-6');
                             echo '</div>';
                             echo '<div class="d-flex flex-column text-center px-5 mt-3 mb-3"> <small class="agree-text">By Changing setting you  agree to the changes and consequence of any erros</small> <a href="#" class="terms">Terms & Conditions</a></div>
                             <div class="d-grid gap-2 col-6 mx-auto">';
