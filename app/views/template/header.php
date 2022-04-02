@@ -6,27 +6,13 @@
     <meta name="description" content="">
     <meta name="author" content="haidarvm">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Basic-<?=$page_title;?></title>
+    <title>Basic-<?=!empty($page_title) ? $page_title :  'Application';?></title>
+    
     <!-- Bootstrap core CSS -->
     <link href="<?=URL;?>assets/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-    
-    <!-- Custom styles for this template -->
-    <?php echo !empty($css) ? $css : "" ;?>
+    <link href="<?=URL;?>assets/css/all.min.css" rel="stylesheet"><!--  FontAwesome 6 -->
     <link href="<?=URL;?>assets/css/custom.css" rel="stylesheet">
+    <?php function_exists('css') ? css() : ''; ?><!-- Custom styles for this template -->
   </head>
   <body>
     

@@ -13,8 +13,12 @@ class PostModel extends Db {
     }
 
     public function insertPost($data){ 
-        $this->body = $data;
-        return $this->insert();
+        $datadb["body"] = $data;
+        return $this->insert($datadb);
+    }
+
+    public function getFirst() {
+        return $this->first();
     }
 
     public function getPostm($id) {

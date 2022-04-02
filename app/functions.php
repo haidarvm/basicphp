@@ -13,6 +13,13 @@ function base_url_no() {
     return  rtrim(Basic::baseUrl(),"/");
 }
 
+function checkVal($val =null, $key = null, $other=null) {
+    $exval = explode('-', $val);
+    // echo $exval[0]. $exval[1];exit;
+    $data = !empty($val->$key) ? $val->$key : '';
+    return !empty($data) ? $data : $other;
+}
+
 function uri($int) {
     return Basic::segment($int);
 }
@@ -28,6 +35,10 @@ function dateIndo() {
     return date("d-m-Y");
 }
 
+function dateIndos() {
+    return date("d-m-Y H:i:s");
+}
+
 function indoDate($date) {
     return date('d-m-Y', strtotime($date));
     // return strftime('%u %b %y', strtotime($date));
@@ -35,7 +46,7 @@ function indoDate($date) {
 }
 
 function tglJamDate($date) {
-    return date('d-M-Y H:i:s', strtotime($date));
+    return date('d-M-Y H:i', strtotime($date));
     // return strftime('%u %b %y', strtotime($date));
     // return time_elapsed_string($date);
 }

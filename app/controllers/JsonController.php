@@ -1,19 +1,29 @@
 <?php
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class JsonController {
     protected $request;
+    protected $post;
+    protected $setting;
+    protected $response;
 
     public function __construct() {
         $this->post = new PostModel;
+        $this->setting = new SettingsModel;
         $this->request =  Request::createFromGlobals();
+        $this->response = new Response(
+            'Content',
+            Response::HTTP_OK,
+            ['content-type' => 'text/html']
+        );
     }
     public function index() {
         $data['post'] = $this->post->getAllPost();
         // print_r($data);exit;
         view('template/header', $data);
-        view('json', $data);
+        view('json_table', $data);
         view('template/footer', $data);
     }
 
@@ -32,6 +42,42 @@ class JsonController {
         }
         $response = new JsonResponse($raw);
         return $response->send();
+    }
+
+    public function formtojson() {
+        $post = $this->request->request->all();
+        $body['body'] =  json_encode($post);
+        // echo $body['body'];
+        print_r($body);
+        // echo json_decode($body["body"]);exit;
+        $this->post->insert($body);
+        $response = new JsonResponse($body['body']);
+        return $response->send();
+    }
+
+    public function formdata() {
+        $post = $this->request->request->all();
+        // print_r($post);
+        // echo json_decode($body["body"]);exit;
+        $first = $this->setting->getFirst();
+        $setting_id = ['setting_id' => $post['setting_id']];
+        unset($post['setting_id']);
+        if(!empty($first->setting_id)) {
+            $update = $post + $setting_id;
+            // print_r($update);exit;
+            $this->setting->where($setting_id)->update($post);
+            $response = new JsonResponse(json_encode($post));
+            return $response->send();
+        } else {
+           $setting_id  =  $this->setting->insertGetId($post);
+           $response = $this->response->setContent($setting_id);
+           return $response->send();
+        }
+        // print_r($first);exit;
+    }
+
+    public function formsetting() {
+
     }
 
     public function hello() {

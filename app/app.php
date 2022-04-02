@@ -57,8 +57,9 @@ Basic::setAutoRoute(); // Automatic '/class/method' routing
 */
 
 Basic::route('GET', '/', function() { // Set homepage
-    $home = new HomeController;
-    $home->index();
+    header('Location: ' . base_url() . 'home');
+    // $home = new HomeController;
+    // $home->index();
 });
 
 Basic::route('GET', '/haidar', function() { // Set homepage

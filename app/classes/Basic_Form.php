@@ -9,27 +9,30 @@
  * @author   Raymund John Ang edit by haidar1 <raymund@open-nis.org>
  * @license  MIT License
  */
-
+ 
 class Basic_Form {
-    public function open($action, $class='form-horizontal', $method='post') {
+    public function open($action, $class='form-horizontal', $method='post', $id =null) {
         ?>
-		<form class="<?= $class ?>" action="<?=!empty($action) ? $action: '#';?>" method="<?= $method ?>">
+		<form class="<?= $class ?>" action="<?=!empty($action) ? $action: '#';?>" method="<?= $method ?>" <?= !empty($id) ? 'id='. $id :  '';?>>
 		<?php
     }
 
-    public function input($type, $name, $label, $value=null, $required=false, $col=null, $style=null) {
+    public function input($type, $name, $label, $value=null, $required=false, $col=null, $style=null, $placehoder=null, $disabled=null) {
         ?>
 		<div class="<?=!empty($col) ? $col : 'col-12';?> mb-3">
 			<label for="<?= $name ?>" class="form-label"><?= $label ?>:</label>
-			<input type="<?= $type ?>" class="form-control" id="<?= $name ?>" placeholder="<?= $label ?>" name="<?= $name ?>" value="<?= $value ?>" <?php if ($required === true) {
+			<input type="<?= $type ?>" class="form-control" id="<?= $name ?>" placeholder="<?= $placehoder ?>" name="<?= $name ?>" value="<?= $value ?>" <?=$disabled?> <?php if ($required === true) {
             echo 'required';
         } ?> />
-			<div class="invalid-feedback">
-				Please enter your <?=$label;?>.
-			</div>
 		</div>
 		<?php
     }
+
+	public function input_hidden($name, $value=null) {
+		?>
+    <input type="hidden"  name="<?= $name ?>" value="<?= $value ?>" />
+    <?php
+	}
 
     public function textArea($name, $label, $value=null, $required=false) {
         ?>
@@ -44,9 +47,9 @@ class Basic_Form {
 		<?php
     }
 
-    public function button($type,  $label, $class='btn btn-primary btn-lg') {
+    public function button($type,  $label, $class='btn btn-primary btn-lg', $dec= 1) {
         ?>
-		<button class=" <?=$class;?>"  <?=!empty($type) ? 'type="'. $type.'"' : 'type="button"';?>><?=$label;?></button>
+		<button class=" <?=$class;?>" data-num="<?=$dec;?>" <?=!empty($type) ? 'type="'. $type.'"' : 'type="button"';?>><?=$label;?></button>
 		<?php
     }
 
