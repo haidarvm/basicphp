@@ -142,6 +142,7 @@ function javascript() {
     <script src="<?=URL; ?>assets/js/jquery-3.6.0.min.js"></script>
     <script src="<?=URL; ?>assets/js/jquery.valid.min.js"></script>
     <script src="<?=URL; ?>assets/js/setting.js"></script>
+    <script src="<?=URL; ?>assets/js/sweetalert.min.js"></script>
 <?php
 } 
 require_once 'template/footer.php';

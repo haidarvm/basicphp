@@ -65,8 +65,9 @@ class JsonController {
         if (!empty($first->setting_id)) {
             $update = $post + $setting_id;
             // print_r($update);exit;
-            $this->setting->where($setting_id)->update($post);
-            $response = new JsonResponse(json_encode($post));
+            $update['status'] = $this->setting->where($setting_id)->update($post);
+            // print_r($update);exit;
+            $response = new JsonResponse(json_encode($post + $update));
             return $response->send();
         } else {
             $setting_id  =  $this->setting->insertGetId($post);

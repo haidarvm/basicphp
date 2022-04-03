@@ -24,34 +24,42 @@
 
 // $('form').on('submit',alert("form submit"));
 
+function showSwal(alert, status) {
+    swal("", alert, status);
+}
 
 jQuery.validator.setDefaults({
     debug: true,
     success: "valid"
 });
 
-$(".btn").click(function (event) {
-    // $('.needs-validation').on('submit', function (e) {
+$(".btn").click(function(event) {
     var d = $(this).attr("data-num");
-    // alert(d);
     var form = $('.form' + d);
     var formData = $(".form" + d).serialize();
 
     var setting_id = ($('input[type=hidden]').val()) ? '&setting_id=' + $('input[type=hidden]').val() : '';
-    // console.log(setting_id);
-    console.log(form.valid());
+    // console.log(form.valid());
     if (form.valid() == false) {
 
     } else {
         formData += setting_id;
         // console.log(formData);
-        $.post(URL + "json/formdata", formData, function (response) {
+        $.post(URL + "json/formdata", formData, function(response) {
             if (!isNaN(response)) {
                 console.log(response);
                 $("input[name*='setting_id']").val(response);
             }
+            // console.log(response);
+            const obj = JSON.parse(response);
+            // console.log(obj.status);
+            if (obj.status) {
+                showSwal("Success Updated", 'success');
+            } else {
+                showSwal("Error!", 'error');
+            }
+
             $(".result").html(response);
-            // alert("Data: " + formData + "\nStatus: " + status);
         });
 
         event.preventDefault();
