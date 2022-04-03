@@ -10,6 +10,17 @@ Features include class autoloading, REST and JSON-RPC routing, functions/middlew
 
 <br />
 
+# with config.ini 
+
+Example :
+base_url='https://example.com'
+db_driver="mysql"
+db_prefix=''
+db_name ='mini'
+db_user ='root'
+db_pass ='Bismillah'
+timezone ='Asia/Jakarta'
+
 ## Features
 
 1. Frameworkless library-based approach

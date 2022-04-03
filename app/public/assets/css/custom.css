@@ -20,6 +20,10 @@ body {
     background-color: #FFEBEE
 }
 
+label.valid {
+    display: none !important;
+}
+
 .card {
     width: 600px;
     background-color: #fff;

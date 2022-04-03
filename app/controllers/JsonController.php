@@ -12,7 +12,7 @@ class JsonController {
     public function __construct() {
         $this->post = new PostModel;
         $this->setting = new SettingsModel;
-        $this->request =  Request::createFromGlobals();
+        $this->request = Request::createFromGlobals();
         $this->response = new Response(
             'Content',
             Response::HTTP_OK,
@@ -62,22 +62,21 @@ class JsonController {
         $first = $this->setting->getFirst();
         $setting_id = ['setting_id' => $post['setting_id']];
         unset($post['setting_id']);
-        if(!empty($first->setting_id)) {
+        if (!empty($first->setting_id)) {
             $update = $post + $setting_id;
             // print_r($update);exit;
             $this->setting->where($setting_id)->update($post);
             $response = new JsonResponse(json_encode($post));
             return $response->send();
         } else {
-           $setting_id  =  $this->setting->insertGetId($post);
-           $response = $this->response->setContent($setting_id);
-           return $response->send();
+            $setting_id  =  $this->setting->insertGetId($post);
+            $response = $this->response->setContent($setting_id);
+            return $response->send();
         }
         // print_r($first);exit;
     }
 
     public function formsetting() {
-
     }
 
     public function hello() {
