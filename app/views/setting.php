@@ -121,8 +121,8 @@ require_once 'template/header.php';
             </div>
         </div>
 
-        <div class='row  justify-content-center text-center mt-4'>
-            <div class="col-md-7 col-lg-8">
+        <div class='row justify-content-center text-center mt-4'>
+            <div class="col-sm-6">
                 <div class="card px-1 py-1" style="width: auto;">
                     <div class="card-body">
                         <div class="row">
