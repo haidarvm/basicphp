@@ -13,7 +13,7 @@ require_once 'template/header.php';
     <main>
         <div class='row  justify-content-center' style="padding-left: 60px;">
             <div class="col-md-7 col-lg-8">
-                <div class="py-3 ">
+                <div class=" ">
                     <img class="d-block mx-auto mb-4 float-start me-3" src="<?=URL;?>assets/img/hydant-logo.png" alt="" height="70">
                     <h3 class=""><?=$page_title?></h3>
                     <p class="lead ">Below is configuration for mini logger, Please make sure input the correct settings
@@ -127,7 +127,7 @@ require_once 'template/header.php';
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-12">
-                               Result Data: <div class="result"></div>
+                               Result Data:<?= $foo;?> <div class="result"></div>
                             </div>
                         </div>
                     </div>

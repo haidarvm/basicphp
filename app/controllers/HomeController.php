@@ -1,25 +1,25 @@
 <?php
-
-class HomeController {
+class HomeController extends Admin {
     protected $setting;
     public function __construct() {
+        parent::__construct();
         $this->setting = new SettingsModel;
     }
 
     public function index() {
-        $data['page_title'] = 'Hydant Logger Settings';
+        $data['page_title'] = 'Hydant Mini Logger Settings';
         $first  = $this->setting->getFirst();
+        $data['foo'] = $this->session->get('foo');
         $data['setting'] = '';
         if (!empty($first->setting_id)) {
             $data['setting'] = $first;
-        } 
+        }
         view('setting', $data);
     }
 
     public function valid() {
-        $data['page_title'] = "Form Validation"; 
+        $data['page_title'] = 'Form Validation';
         view('validation', $data);
-
     }
 
     public function hello() {

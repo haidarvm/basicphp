@@ -20,6 +20,10 @@ function checkVal($val =null, $key = null, $other=null) {
     return !empty($data) ? $data : $other;
 }
 
+function checkIf($val, $other=null) {
+    return !empty($val) ? $val : $other;
+}
+
 function uri($int) {
     return Basic::segment($int);
 }

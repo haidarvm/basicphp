@@ -17,7 +17,41 @@
 }
 
 body {
-    background-color: #FFEBEE
+    background-color: #FFEBEE;
+    min-height: 45rem;
+    padding-top: 2rem;
+}
+
+.container {
+    max-width: 1520px;
+}
+
+.container-fluid {
+    max-width: 1240px;
+}
+
+main {
+    margin-top: 20px;
+}
+
+.navbar {
+    padding: 0 15px;
+}
+
+.logo {
+    width: auto;
+    height: 30px;
+    margin-top: -5px;
+}
+
+.row>* {
+    flex-shrink: inherit;
+}
+
+.maxtd {
+    word-wrap: break-word;
+    min-width: 460px;
+    max-width: 160px;
 }
 
 label.valid {

@@ -3,6 +3,24 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `user_id` int(5)  NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(400) NOT NULL,
+  `fullname` varchar(400) NOT NULL,
+  `email` varchar(50)  NULL,
+  `phone` varchar(50)  NULL,
+  `token` varchar(255)  NULL,
+  `is_active` ENUM('0','1') NOT NULL DEFAULT '0' ,
+  `level` ENUM('1','2')  NOT NULL DEFAULT '2' ,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `users` ( `username`, `password`, `fullname`, `email`, `phone`, `token`) VALUES ('admin', SHA1('admin'), 'haidar', 'haidarvm@gmail.com', '08996834021', '12313123123');
+
 DROP TABLE IF EXISTS `posts`;
 CREATE TABLE `posts` (
   `post_id` int(11) NOT NULL AUTO_INCREMENT,

@@ -20,6 +20,7 @@ class JsonController {
         );
     }
     public function index() {
+        $data['page_title'] = 'Hydant Mini Logger Data';
         $data['post'] = $this->post->getAllPost();
         // print_r($data);exit;
         view('template/header', $data);
