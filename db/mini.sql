@@ -1,8 +1,8 @@
--- MariaDB dump 10.19  Distrib 10.5.13-MariaDB, for Linux (x86_64)
+-- MariaDB dump 10.19  Distrib 10.6.7-MariaDB, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: mini
 -- ------------------------------------------------------
--- Server version	10.5.13-MariaDB-log
+-- Server version	10.6.7-MariaDB-2ubuntu1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -87,8 +87,41 @@ CREATE TABLE `settings` (
 
 LOCK TABLES `settings` WRITE;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-INSERT INTO `settings` VALUES (6,'008',0,0,20,100,81395349147,0,'socket',3,2,'dini','1.1.1.1','bismillah','arfa','ini.hyd-ant.app','bismillah','/json','haidar',80,'mini.hyd-ant.app','bismillah','/json','haidar',443,NULL,'2022-04-02 00:15:42','2022-04-02 04:32:41');
+INSERT INTO `settings` VALUES (6,'HY108',0,0,20,100,81220888447,0,'socket',3,1,'dini','2','bismillah','1','ini.hyd-ant.app','bismillah','','haidar',1,'mini.hyd-ant.app','bismillah','/json','haidar',443,NULL,'2022-04-02 00:15:42','2022-04-04 01:24:31');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `user_id` int(5) NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(400) NOT NULL,
+  `fullname` varchar(400) NOT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `phone` varchar(50) DEFAULT NULL,
+  `token` varchar(255) DEFAULT NULL,
+  `is_active` enum('0','1') DEFAULT '0',
+  `level` enum('1','2') NOT NULL DEFAULT '2',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'admin','d033e22ae348aeb5660fc2140aec35850c4da997','haidar','haidarvm@gmail.com','08996834021','12313123123','0','1','2022-04-03 22:37:45','2022-04-03 22:37:58');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -100,4 +133,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-03 15:25:59
+-- Dump completed on 2022-04-04 12:32:32

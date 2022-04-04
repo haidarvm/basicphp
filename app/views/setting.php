@@ -1,6 +1,6 @@
 <?php
 function css(){
-    ?>
+?>
 <style>
 </style>
 <link href="<?=URL;?>assets/css/form-validation.css" rel="stylesheet">
@@ -120,7 +120,6 @@ require_once 'template/header.php';
                 </div>
             </div>
         </div>
-
         <div class='row justify-content-center text-center mt-4'>
             <div class="col-sm-6">
                 <div class="card px-1 py-1" style="width: auto;">
