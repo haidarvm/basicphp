@@ -3,13 +3,14 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class JsonController {
+class JsonController extends PublicController {
     protected $request;
     protected $post;
     protected $setting;
     protected $response;
 
     public function __construct() {
+        parent::__construct();
         $this->post = new PostModel;
         $this->setting = new SettingsModel;
         $this->request = Request::createFromGlobals();

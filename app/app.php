@@ -70,6 +70,10 @@ Basic::route('GET', '/haidar', function() { // Set homepage
     Basic::apiResponse(200, $data, 'application/json');
 });
 
+Basic::route('GET', '/logout', function()  { // Set homepage
+    $auth = new AuthController;
+    $auth->logout();
+});
 
 /*
 |--------------------------------------------------------------------------

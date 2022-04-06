@@ -39,7 +39,7 @@ class AuthController extends PublicController {
         } elseif ($this->session->get('user_id')) {
             header('Location: ' . base_url() . 'home');
         } else {
-            $this->session->set('message', 'Sorry Wrong User / Pass');
+            $this->session->set('message', '<p class="text-danger">Sorry Wrong User / Pass</p>');
             // echo $this->session->get("message");
             header('Location: ' . base_url() . 'auth');
         }

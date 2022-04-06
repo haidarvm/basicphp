@@ -32,6 +32,10 @@ function dateSql() {
     return date("Y-m-d");
 }
 
+function dateSqlfull() {
+    return date("Y-m-d H:i:s");
+}
+
 function toSqlDate($date) {
     return date("Y-m-d",strtotime($date));
 }

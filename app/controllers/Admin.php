@@ -3,7 +3,6 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class Admin {
     public $session;
-
     public function __construct() {
         $this->session = new Session();
         if (!$this->session->get('user_data')) {
