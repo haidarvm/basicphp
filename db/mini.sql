@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: mini
 -- ------------------------------------------------------
--- Server version	10.6.7-MariaDB-2ubuntu1
+-- Server version	10.6.7-MariaDB-1:10.6.7+maria~focal-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,6 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `mahasiswa`
+--
+
+DROP TABLE IF EXISTS `mahasiswa`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `mahasiswa` (
+  `mahasiswa_id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(200) NOT NULL,
+  `alamat` varchar(1000) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`mahasiswa_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `mahasiswa`
+--
+
+LOCK TABLES `mahasiswa` WRITE;
+/*!40000 ALTER TABLE `mahasiswa` DISABLE KEYS */;
+INSERT INTO `mahasiswa` VALUES (1,'haidar',NULL,'2022-04-26 08:10:29'),(2,'doni',NULL,'2022-04-26 08:10:39');
+/*!40000 ALTER TABLE `mahasiswa` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `post_data`
 --
 
@@ -27,8 +53,9 @@ CREATE TABLE `post_data` (
   `body` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`body`)),
   `headers` text DEFAULT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +64,7 @@ CREATE TABLE `post_data` (
 
 LOCK TABLES `post_data` WRITE;
 /*!40000 ALTER TABLE `post_data` DISABLE KEYS */;
-INSERT INTO `post_data` VALUES (1,'{\"message\":\"innalillahi\"}','{\"content-length\":[\"26\"],\"connection\":[\"keep-alive\"],\"accept-encoding\":[\"gzip, deflate, br\"],\"host\":[\"basic.test\"],\"postman-token\":[\"51b52a80-1662-4f21-93da-3d67dafd2727\"],\"accept\":[\"*\\/*\"],\"user-agent\":[\"PostmanRuntime\\/7.29.0\"],\"content-type\":[\"application\\/json\"],\"name\":[\"riqi\"]}','2022-04-01 04:29:09'),(2,'{\"zikir\":\"astagfirullah\",\"status\":200}','{\"content-length\":[\"41\"],\"connection\":[\"keep-alive\"],\"accept-encoding\":[\"gzip, deflate, br\"],\"host\":[\"basic.test\"],\"postman-token\":[\"7af371d7-9f03-4c7a-9655-176480bc9b2b\"],\"accept\":[\"*\\/*\"],\"user-agent\":[\"PostmanRuntime\\/7.29.0\"],\"content-type\":[\"application\\/json\"],\"name\":[\"riqi\"]}','2022-04-01 04:31:22'),(3,'{\"zikir\":\"innalillahi\",\"status\":300}','{\"content-length\":[\"39\"],\"connection\":[\"keep-alive\"],\"accept-encoding\":[\"gzip, deflate, br\"],\"host\":[\"basic.test\"],\"postman-token\":[\"1d7ac963-341f-49f9-aee6-a4b5e4792c68\"],\"accept\":[\"*\\/*\"],\"user-agent\":[\"PostmanRuntime\\/7.29.0\"],\"content-type\":[\"application\\/json\"],\"name\":[\"riqi\"]}','2022-04-01 04:31:36'),(4,'{\"zikir\":\"innalillahi\",\"status\":300}','{\"content-length\":[\"39\"],\"connection\":[\"keep-alive\"],\"accept-encoding\":[\"gzip, deflate, br\"],\"host\":[\"basic.test\"],\"postman-token\":[\"f252d293-d1f5-40b4-8ac1-e12d8a1d84a5\"],\"accept\":[\"*\\/*\"],\"user-agent\":[\"PostmanRuntime\\/7.29.0\"],\"content-type\":[\"application\\/json\"],\"name\":[\"riqi\"]}','2022-04-01 20:17:47'),(5,'{\"zikir\":\"SubhanAllah\",\"status\":300}','{\"content-length\":[\"39\"],\"connection\":[\"keep-alive\"],\"accept-encoding\":[\"gzip, deflate, br\"],\"host\":[\"basic.test\"],\"postman-token\":[\"ad6ebe9a-0ee9-4f10-bc34-11cb938ff087\"],\"accept\":[\"*\\/*\"],\"user-agent\":[\"PostmanRuntime\\/7.29.0\"],\"content-type\":[\"application\\/json\"],\"name\":[\"riqi\"]}','2022-04-01 20:17:58'),(6,'{\"zikir\":\"SubhanAllah\",\"status\":300}','{\"content-length\":[\"39\"],\"connection\":[\"keep-alive\"],\"accept-encoding\":[\"gzip, deflate, br\"],\"host\":[\"basic.test\"],\"postman-token\":[\"3ba863b8-ae01-413c-b5cb-942ca4086481\"],\"accept\":[\"*\\/*\"],\"user-agent\":[\"PostmanRuntime\\/7.29.0\"],\"content-type\":[\"application\\/json\"],\"name\":[\"riqi\"]}','2022-04-01 20:24:14'),(7,'{\"body\":{\"apn\":\"indosatgprs\",\"dns\":\"8.8.8.8\",\"password\":\"indosatgprs\",\"user\":\"indosatgprs\"}}',NULL,'2022-04-01 20:34:14'),(8,'{\"apn\":\"indosatgprs\",\"dns\":\"8.8.8.8\",\"password\":\"indosatgprs\",\"user\":\"indosatgprs\"}',NULL,'2022-04-01 20:34:58'),(9,'{\"station_id\":\"STAL999\",\"alarm_01h_status\":\"0\",\"alarm_24h_status\":\"0\",\"alarm_01h\":\"20\",\"alarm_24h\":\"100\",\"alarm_sms\":\"081395349147\",\"alarm\":\"1\",\"protocol\":\"socket\",\"interval\":\"3\",\"instantaneous\":\"1\"}',NULL,'2022-04-01 20:41:39'),(10,'{\"address\":\"ds.manvis.web.id\",\"passwd\":\"pass\",\"path\":\"\\/json\",\"user\":\"haidar\",\"port\":\"80\"}',NULL,'2022-04-01 20:42:21'),(11,'{\"address2\":\"ds.manvis.web.id\",\"passwd2\":\"pass2\",\"path2\":\"\\/json\\/https\",\"user2\":\"uwais\",\"port2\":\"443\"}',NULL,'2022-04-01 20:42:22');
+INSERT INTO `post_data` VALUES (1,'{\"message\":\"innalillahi\"}','{\"content-length\":[\"26\"],\"connection\":[\"keep-alive\"],\"accept-encoding\":[\"gzip, deflate, br\"],\"host\":[\"basic.test\"],\"postman-token\":[\"51b52a80-1662-4f21-93da-3d67dafd2727\"],\"accept\":[\"*\\/*\"],\"user-agent\":[\"PostmanRuntime\\/7.29.0\"],\"content-type\":[\"application\\/json\"],\"name\":[\"riqi\"]}','2022-03-05 04:29:09',NULL),(2,'{\"zikir\":\"astagfirullah\",\"status\":200}','{\"content-length\":[\"41\"],\"connection\":[\"keep-alive\"],\"accept-encoding\":[\"gzip, deflate, br\"],\"host\":[\"basic.test\"],\"postman-token\":[\"7af371d7-9f03-4c7a-9655-176480bc9b2b\"],\"accept\":[\"*\\/*\"],\"user-agent\":[\"PostmanRuntime\\/7.29.0\"],\"content-type\":[\"application\\/json\"],\"name\":[\"riqi\"]}','2022-04-01 04:31:22',NULL),(3,'{\"zikir\":\"innalillahi\",\"status\":300}','{\"content-length\":[\"39\"],\"connection\":[\"keep-alive\"],\"accept-encoding\":[\"gzip, deflate, br\"],\"host\":[\"basic.test\"],\"postman-token\":[\"1d7ac963-341f-49f9-aee6-a4b5e4792c68\"],\"accept\":[\"*\\/*\"],\"user-agent\":[\"PostmanRuntime\\/7.29.0\"],\"content-type\":[\"application\\/json\"],\"name\":[\"riqi\"]}','2022-04-01 04:31:36',NULL),(4,'{\"zikir\":\"innalillahi\",\"status\":300}','{\"content-length\":[\"39\"],\"connection\":[\"keep-alive\"],\"accept-encoding\":[\"gzip, deflate, br\"],\"host\":[\"basic.test\"],\"postman-token\":[\"f252d293-d1f5-40b4-8ac1-e12d8a1d84a5\"],\"accept\":[\"*\\/*\"],\"user-agent\":[\"PostmanRuntime\\/7.29.0\"],\"content-type\":[\"application\\/json\"],\"name\":[\"riqi\"]}','2022-04-01 20:17:47',NULL),(5,'{\"zikir\":\"SubhanAllah\",\"status\":300}','{\"content-length\":[\"39\"],\"connection\":[\"keep-alive\"],\"accept-encoding\":[\"gzip, deflate, br\"],\"host\":[\"basic.test\"],\"postman-token\":[\"ad6ebe9a-0ee9-4f10-bc34-11cb938ff087\"],\"accept\":[\"*\\/*\"],\"user-agent\":[\"PostmanRuntime\\/7.29.0\"],\"content-type\":[\"application\\/json\"],\"name\":[\"riqi\"]}','2022-04-01 20:17:58',NULL),(6,'{\"zikir\":\"SubhanAllah\",\"status\":300}','{\"content-length\":[\"39\"],\"connection\":[\"keep-alive\"],\"accept-encoding\":[\"gzip, deflate, br\"],\"host\":[\"basic.test\"],\"postman-token\":[\"3ba863b8-ae01-413c-b5cb-942ca4086481\"],\"accept\":[\"*\\/*\"],\"user-agent\":[\"PostmanRuntime\\/7.29.0\"],\"content-type\":[\"application\\/json\"],\"name\":[\"riqi\"]}','2022-04-05 04:09:30','2022-03-05 11:09:29'),(7,'{\"body\":{\"apn\":\"indosatgprs\",\"dns\":\"8.8.8.8\",\"password\":\"indosatgprs\",\"user\":\"indosatgprs\"}}',NULL,'2022-04-01 20:34:14',NULL),(8,'{\"apn\":\"indosatgprs\",\"dns\":\"8.8.8.8\",\"password\":\"indosatgprs\",\"user\":\"indosatgprs\"}',NULL,'2022-04-01 20:34:58',NULL),(9,'{\"station_id\":\"STAL999\",\"alarm_01h_status\":\"0\",\"alarm_24h_status\":\"0\",\"alarm_01h\":\"20\",\"alarm_24h\":\"100\",\"alarm_sms\":\"081395349147\",\"alarm\":\"1\",\"protocol\":\"socket\",\"interval\":\"3\",\"instantaneous\":\"1\"}',NULL,'2022-04-01 20:41:39',NULL),(10,'{\"address\":\"ds.manvis.web.id\",\"passwd\":\"pass\",\"path\":\"\\/json\",\"user\":\"haidar\",\"port\":\"80\"}',NULL,'2022-04-01 20:42:21',NULL),(11,'{\"address2\":\"ds.manvis.web.id\",\"passwd2\":\"pass2\",\"path2\":\"\\/json\\/https\",\"user2\":\"uwais\",\"port2\":\"443\"}',NULL,'2022-04-01 20:42:22',NULL),(12,'{\"message\":\"success\"}',NULL,'2022-04-05 02:39:30',NULL),(13,'{\"message\":\"success\",\"other\":\"none\"}',NULL,'2022-04-05 02:42:41',NULL),(14,'{\"message\":\"success\",\"other\":\"none\"}',NULL,'2022-04-05 02:43:30',NULL),(15,'{\"message\":\"success\",\"other\":\"none\"}',NULL,'2022-04-05 02:50:13',NULL),(16,'{\"message\":\"success\",\"other\":\"none\"}',NULL,'2022-04-05 02:50:52',NULL),(17,'{\"message\":\"success\",\"other\":\"none\"}',NULL,'2022-04-05 02:52:29',NULL),(18,'{\"message\":\"success\",\"other\":\"none\"}',NULL,'2022-04-05 02:53:01',NULL),(19,'{\"message\":\"success\",\"other\":\"none\"}',NULL,'2022-04-05 02:53:56',NULL),(20,'{\"message\":\"success\",\"other\":\"none\"}',NULL,'2022-04-05 02:54:15',NULL),(21,'{\"message\":\"success\",\"other\":\"none\"}',NULL,'2022-04-05 02:58:58',NULL),(22,'{\"message\":\"success\",\"other\":\"none\"}',NULL,'2022-04-05 02:59:07',NULL),(23,'{\"message\":\"success\",\"other\":\"none\"}',NULL,'2022-04-05 02:59:29',NULL),(24,'{\"message\":\"success\",\"other\":\"none\"}',NULL,'2022-04-05 02:59:29',NULL),(25,'{\"message\":\"success\",\"other\":70}',NULL,'2022-04-05 15:01:21',NULL),(26,'{\"message\":\"success\",\"other\":78}',NULL,'2022-04-05 15:01:55','2022-04-05 10:01:50'),(27,'{\"message\":\"success\",\"other\":25}',NULL,'2022-04-05 15:03:29','2022-04-05 22:03:25'),(28,'{\"message\":\"success\",\"other\":59}',NULL,'2022-04-05 15:03:39','2022-04-05 22:03:25'),(29,'{\"message\":\"success\",\"other\":40}',NULL,'2022-04-05 15:47:37','2022-04-05 22:47:37'),(30,'{\"message\":\"success\",\"other\":98}',NULL,'2022-04-05 16:32:32','2022-04-05 23:32:32');
 /*!40000 ALTER TABLE `post_data` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +114,7 @@ CREATE TABLE `settings` (
 
 LOCK TABLES `settings` WRITE;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-INSERT INTO `settings` VALUES (6,'HY108',0,0,20,100,81220888447,0,'socket',3,1,'dini','2','bismillah','1','ini.hyd-ant.app','bismillah','','haidar',1,'mini.hyd-ant.app','bismillah','/json','haidar',443,NULL,'2022-04-02 00:15:42','2022-04-04 01:24:31');
+INSERT INTO `settings` VALUES (6,'15',0,0,20,100,81220888447,0,'socket',7,1,'telkomsel','2','bismillah','1','pjb.hyd-ant.app','bismillah','','haidar',443,'mini.hyd-ant.app','bismillah','/json','haidar',443,NULL,'2022-04-02 00:15:42','2022-04-12 22:38:35');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -133,4 +160,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-04 12:32:32
+-- Dump completed on 2022-04-26 15:11:43
