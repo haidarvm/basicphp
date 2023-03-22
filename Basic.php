@@ -16,6 +16,9 @@
  * @license   MIT License
  */
 
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+#require_once __DIR__ .'/vendor/autoload.php';
 class Basic
 {
 
@@ -24,6 +27,36 @@ class Basic
 	| FUNCTIONS
 	|--------------------------------------------------------------------------
 	*/
+
+	// public static function db() {
+    //     $mysql = new Mysqlidb('localhost', DB_USER, DB_PASS, DB_NAME);
+    //     $mysql->setPrefix(DB_PREFIX);
+    //     return $mysql;
+	// }
+
+
+    public static function capsulate() {
+        $capsule = new Capsule;
+        $capsule->addConnection([
+            'driver' => DB_DRIVER,
+            'host' => DB_HOST,
+            'database' => DB_NAME,
+            'username' => DB_USER,
+            'password' => DB_PASS,
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' =>  DB_PREFIX 
+        ]);
+
+        // Set the event dispatcher used by Eloquent models... (optional)
+        // $capsule->setEventDispatcher(new Dispatcher(new Container));
+
+        // Make this Capsule instance available globally via static methods... (optional)
+        $capsule->setAsGlobal();
+
+        // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
+        $capsule->bootEloquent();
+    }
 
 	/**
 	 * Get URI segment value
@@ -183,7 +216,7 @@ class Basic
 		$http_protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https://' : 'http://';
 		$subfolder = (! empty(dirname($_SERVER['SCRIPT_NAME']))) ? dirname($_SERVER['SCRIPT_NAME']) : '';
 
-		return $http_protocol . $_SERVER['SERVER_NAME'] . $subfolder . '/';
+		return $http_protocol . $_SERVER['SERVER_NAME'] . $subfolder ;
 	}
 
 	/**

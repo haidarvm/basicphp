@@ -1,0 +1,127 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.lead {
+    font-size: 18px;
+}
+
+body {
+    background-color: #FFEBEE;
+    min-height: 45rem;
+    padding-top: 2rem;
+}
+
+.container {
+    max-width: 1520px;
+}
+
+.container-fluid {
+    max-width: 1240px;
+}
+
+main {
+    margin-top: 20px;
+}
+
+.navbar {
+    padding: 0 15px;
+}
+
+.logo {
+    width: auto;
+    height: 30px;
+    margin-top: -5px;
+}
+
+.row>* {
+    flex-shrink: inherit;
+}
+
+.maxtd {
+    word-wrap: break-word;
+    min-width: 460px;
+    max-width: 160px;
+}
+
+label.valid {
+    display: none !important;
+}
+
+.card {
+    width: 600px;
+    background-color: #fff;
+    border: none;
+    border-radius: 12px
+}
+
+label.radio {
+    cursor: pointer;
+    width: 100%
+}
+
+label.radio input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    pointer-events: none
+}
+
+label.radio span {
+    padding: 7px 14px;
+    border: 2px solid #eee;
+    display: inline-block;
+    color: #039be5;
+    border-radius: 10px;
+    width: 100%;
+    height: 48px;
+    line-height: 27px
+}
+
+label.radio input:checked+span {
+    border-color: #039BE5;
+    background-color: #81D4FA;
+    color: #fff;
+    border-radius: 9px;
+    height: 48px;
+    line-height: 27px
+}
+
+.form-control {
+    margin-top: 10px;
+    height: 48px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    background-color: rgb(239 239 239);
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: 2px solid #039BE5
+}
+
+.agree-text {
+    font-size: 12px
+}
+
+.terms {
+    font-size: 12px;
+    text-decoration: none;
+    color: #039BE5
+}
+
+.confirm-button {
+    height: 50px;
+    border-radius: 10px
+}
