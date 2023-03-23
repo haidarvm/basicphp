@@ -9,7 +9,7 @@ $ini = parse_ini_file(__DIR__ . '/../config.ini');
 
 define('URL_PROTOCOL', '//');
 define('URL_DOMAIN', $_SERVER['HTTP_HOST']);
-// define('URL_SUB_FOLDER', str_replace(URL_PUBLIC_FOLDER, '', dirname($_SERVER['SCRIPT_NAME'])));
+define('CONF', __DIR__.'/../config.ini' );
 define('URL', URL_PROTOCOL . URL_DOMAIN .'/');
 define('DB_DRIVER', $ini['db_driver']); // Sample database name
 define('DB_HOST', $ini['db_host']); // Sample database name
