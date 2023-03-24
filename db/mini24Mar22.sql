@@ -147,7 +147,7 @@ CREATE TABLE `settings` (
 LOCK TABLES `settings` WRITE;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
 INSERT INTO `settings` VALUES
-(6,'15',0,0,20,100,81220888447,0,'socket',7,1,'telkomsel','2','bismillah','1','pjb.hyd-ant.app','haidar','','haidar',443,'mini.hyd-ant.app','bismillah','/json','haidar',443,NULL,'2022-04-02 00:15:42','2023-03-23 08:10:25');
+(6,'15',0,0,20,100,81220888447,0,'socket',7,1,'telkomsel','2','bismillah','1','test.example.com','haidar','','haidar',443,'mini.example.com','bismillah','/json','haidar',443,NULL,'2022-04-02 00:15:42','2023-03-23 08:10:25');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
