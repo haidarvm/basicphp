@@ -26,7 +26,7 @@ class AuthController extends PublicController {
 
     public function login() {
         $post = $this->request->request->all();
-        $logged_in = $this->user->login($post['username'], $post['password']);
+        $logged_in = $this->user->logins($post['username'], $post['password']);
         if (!empty($logged_in->user_id)) {
             $user_data = ['user_id' => $logged_in->user_id,
                 'username' => $logged_in->username,

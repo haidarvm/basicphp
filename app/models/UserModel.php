@@ -23,4 +23,9 @@ class UserModel extends Db {
         }
     }
 
+
+    public function logins($username, $pass) {
+        return $this->where(['user_login' => $username, 'pass' => sha1($pass)])->first();
+    }
+
 }
