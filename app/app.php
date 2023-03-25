@@ -60,7 +60,7 @@ Basic::setAutoRoute(); // Automatic '/class/method' routing
 */
 
 Basic::route('GET', '/', function() { // Set homepage
-    header('Location: ' . base_url() . 'home');
+    header('Location: ' . base_url() . 'identitas');
     // $home = new HomeController;
     // $home->index();
 });
