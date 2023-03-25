@@ -1,46 +1,72 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="haidarvm">
-    <meta name="generator" content="Hugo 0.88.1">
-    <title>Basic-<?=!empty($page_title) ? $page_title :  'Application';?></title>
+    <title>Database MariaDB</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <!-- Bootsrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
 
-    <!-- Bootstrap core CSS -->
-    <link href="<?=URL;?>assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?=URL;?>assets/css/all.min.css" rel="stylesheet"><!--  FontAwesome 6 -->
-    <link href="<?=URL;?>assets/css/custom.css" rel="stylesheet"><!-- Custom styles for this template -->
-    <?php function_exists('css') ? css() : ''; ?>
-    <style>
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-white">
-        <div class="container-fluid  row g-5 justify-content-center text-center ">
-        <div class=" ">
-            <img class="logo me-2" src="<?=URL;?>assets/img/hydant-logo.png"  alt="">
-            <a class="navbar-brand  text-dark" href="#"> Mini Logger</a>
-        </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse " id="navbarCollapse">
-                <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark active  " aria-current="page" href="<?=URL;?>">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark  " href="<?=URL;?>json">Data</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark  " href="<?=URL;?>auth/logout">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+
+<style>
+body {
+    background-color: black;
+    color: white;
+}
+
+.color-text {
+    color: black;
+}
+
+.table-dark {
+    --bs-table-hover-bg: darkred;
+}
+
+.table1 {
+    font-family: sans-serif;
+    color: rgb(80, 80, 80);
+    border-collapse: collapse;
+    width: 50%;
+    border: 1px solid #ffffff;
+}
+
+.table1 tr th {
+    background: #282828;
+    color: rgb(255, 252, 252);
+    font-weight: normal;
+}
+
+.table1,
+th,
+td {
+    padding: 8px 20px;
+    text-align: center;
+}
+
+.table1 tr:hover {
+    background-color: #ffffff;
+}
+
+.table1 tr:nth-child(even) {
+    background-color: #404040;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text {
+    color: white;
+}
+</style>
+
+<body style="text-align:center">
