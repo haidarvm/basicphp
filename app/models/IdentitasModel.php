@@ -18,13 +18,15 @@ class IdentitasModel extends Db {
     public function getidentitas($id) {
         return $this->where('identitas_id =' . $id)->find();
     }
-
+    
     public function insertIdentitas($data) {
-        return $this->setting->insertGetId($data);
+        unset($data['submit']);
+        return $this->insertGetId($data);
     }
 
     public function updateIdentitas($data, $id) {
-       return  $this->setting->where($id)->update($data);
+        unset($data['submit']);
+       return  $this->where($id)->update($data);
     }
 
     public function deleteIdentitas($id) {

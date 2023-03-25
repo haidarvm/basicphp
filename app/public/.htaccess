@@ -1,12 +1,13 @@
 RewriteEngine On
 
 # Comment out RewriteBase if public folder is DocumentRoot
-# RewriteBase /basicphp/app/public/
-
+#RewriteBase /app/public/
+#RewriteRule    ^$    app/public/    [L]
+    RewriteRule    (.*) app/public/$1    [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+)$ index.php/$1 [QSA,L]
-
+#i#    RewriteRule    ^$    app/ublic/    [L]
 # Allow HTTP Authorization Bearer
 RewriteCond %{HTTP:Authorization} ^(.*)
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%1]
