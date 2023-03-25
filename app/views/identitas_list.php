@@ -63,9 +63,9 @@ $awalData = (5 * 1) - 4;
     <tr>
         <td><?=$i;?></td>
         <td>
-            <a href="ubah/<?=$row["id"];?>"><button type="button" class="btn btn-warning">Ubah</button></a>
+            <a href="identitas/ubah/<?=$row["id"];?>"><button type="button" class="btn btn-warning">Ubah</button></a>
 
-            <a href="hapus/<?=$row["id"];?>" onclick="return confirm('yakin?');"><button type="button"
+            <a href="identitas/hapus/<?=$row["id"];?>" onclick="return confirm('yakin?');"><button type="button"
                     class="btn btn-danger">Hapus</button></a>
 
             <a href="identitas/detail/<?=$row["id"];?>"><button type="button"
