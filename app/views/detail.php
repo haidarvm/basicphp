@@ -1,6 +1,18 @@
 <?php
 require_once 'template/header.php';
 ?>
+<style>
+body {
+    background-color: darkgray;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+
+
 <table border="3" class="center">
     <tr>
         <td><button type="button" class="text-light bg-dark">
@@ -57,5 +69,5 @@ require_once 'template/header.php';
         </td>
     </tr>
 </table>
-< <?php
+<?php
 require_once 'template/footer.php';
