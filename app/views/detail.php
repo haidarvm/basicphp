@@ -10,7 +10,6 @@ require_once 'template/header.php';
     </tr>
 </table>
 <br></br>
-
 <table border="6" class="center">
     <tr>
         <td><label for="nama"><button type="button" class="text-light bg-dark">

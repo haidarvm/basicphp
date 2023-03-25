@@ -19,7 +19,7 @@ class IdentitasController extends PublicController {
 
     public function detail() {
         $data['page_title'] = 'Data identitas';
-        $id = uri(2);
+        $id = uri(3);
         $data['identitas'] = $this->identitas->getIdentitas($id);
         view('detail', $data);
     }

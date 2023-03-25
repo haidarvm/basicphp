@@ -16,7 +16,7 @@ class IdentitasModel extends Db {
     }
 
     public function getIdentitas($id) {
-        return $this->where('id',$id)->get();
+        return $this->where('id',$id)->first();
     }
     
     public function insertIdentitas($data) {
