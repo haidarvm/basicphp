@@ -1,5 +1,7 @@
 <?php
 
+// use Db as DB;
+
 class IdentitasModel extends Db {
     public $table = 'identitas';
     public $primaryKey = 'identitas_id';
@@ -7,6 +9,10 @@ class IdentitasModel extends Db {
 
     public function getAll() {
         return $this->get();
+    }
+
+    public function getDb() {
+        return DB_NAME;
     }
 
     public function getidentitas($id) {

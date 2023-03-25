@@ -13,6 +13,7 @@ class IdentitasController extends PublicController {
     public function index() {
         $data['page_title'] = 'identitas';
         $data['identitas'] = $this->identitas->getAll();
+        echo $this->identitas->getDb();
         view('template/header', $data);
         view('identitas_list', $data);
         view('template/footer', $data);
