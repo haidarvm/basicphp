@@ -14,16 +14,12 @@ class IdentitasController extends PublicController {
         $data['page_title'] = 'identitas';
         $data['identitas'] = $this->identitas->getAll();
         $data['db'] = $this->identitas;
-        view('template/header', $data);
         view('identitas_list', $data);
-        view('template/footer', $data);
     }
 
     public function insert() {
         $data['page_title'] = 'Data identitas';
-        view('template/header', $data);
         view('identitas_form', $data);
-        view('template/footer', $data);
     }
 
     public function save() {
