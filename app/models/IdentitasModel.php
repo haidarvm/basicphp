@@ -4,7 +4,7 @@
 
 class IdentitasModel extends Db {
     public $table = 'identitas';
-    public $primaryKey = 'identitas_id';
+    public $primaryKey = 'id';
 
 
     public function getAll() {
@@ -16,7 +16,7 @@ class IdentitasModel extends Db {
     }
 
     public function getIdentitas($id) {
-        return $this->where('identitas_id',$id)->get();
+        return $this->where('id',$id)->get();
     }
     
     public function insertIdentitas($data) {
