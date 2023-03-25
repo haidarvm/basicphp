@@ -68,7 +68,8 @@ $awalData = (5 * 1) - 4;
             <a href="hapus/<?=$row["id"];?>" onclick="return confirm('yakin?');"><button type="button"
                     class="btn btn-danger">Hapus</button></a>
 
-            <a href="detail/<?=$row["id"];?>"><button type="button" class="btn btn-secondary">Detail</button></a>
+            <a href="identitas/detail/<?=$row["id"];?>"><button type="button"
+                    class="btn btn-secondary">Detail</button></a>
         </td>
 
         <td><?=$row["nama"];?></td>
