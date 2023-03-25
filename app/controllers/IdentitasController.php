@@ -25,15 +25,14 @@ class IdentitasController extends PublicController {
     }
 
     public function ubah() {
-        $data['page_title'] = 'ubah identitas';
-        $id = uri(3);
+        $data['page_title'] = 'Ubah identitas';
         $data['identitas'] = $this->identitas->updateIdentitas($id);
         view('update', $data);
     }
 
     public function hapus() {
        $data['page_title'] = 'Hapus identitas';
-       $data['identitas'] = $this->identitas->deleteIdentitas($id);
+       $data['identitas'] = $this->identitas->deleteIdentitas($data);
        view('hapus', $data);
     }
 
@@ -41,6 +40,5 @@ class IdentitasController extends PublicController {
         $data = $this->request->request->all();
         $this->identitas->insert($data);
         header('Location: ' . base_url() . 'identitas');
-
     }
 }
