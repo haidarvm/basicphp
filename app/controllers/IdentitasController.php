@@ -2,34 +2,33 @@
 use Symfony\Component\HttpFoundation\Request;
 
 
-class IdenditasController extends PublicController {
-    protected $idenditas;
+class IdentitasController extends PublicController {
+    protected $identitas;
 
     public function __construct() {
         parent::__construct();
-        $this->idenditas = new idenditasModel;
+        $this->identitas = new IdentitasModel;
         $this->request = Request::createFromGlobals();
     }
     public function index() {
-        $data['page_title'] = 'Idenditas';
-        $data['idenditas'] = $this->idenditas->getAll();
-        // print_r($data);exit;
+        $data['page_title'] = 'identitas';
+        $data['identitas'] = $this->identitas->getAll();
         view('template/header', $data);
-        view('idenditas_list', $data);
+        view('identitas_list', $data);
         view('template/footer', $data);
     }
 
     public function insert() {
-        $data['page_title'] = 'Data idenditas';
+        $data['page_title'] = 'Data identitas';
         view('template/header', $data);
-        view('idenditas_form', $data);
+        view('identitas_form', $data);
         view('template/footer', $data);
     }
 
     public function save() {
         $data = $this->request->request->all();
-        $this->idenditas->insert($data);
-        header('Location: ' . base_url() . 'idenditas');
+        $this->identitas->insert($data);
+        header('Location: ' . base_url() . 'identitas');
 
     }
 }
