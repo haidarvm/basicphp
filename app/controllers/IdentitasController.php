@@ -24,6 +24,19 @@ class IdentitasController extends PublicController {
         view('detail', $data);
     }
 
+    public function ubah() {
+        $data['page_title'] = 'ubah identitas';
+        $id = uri(3);
+        $data['identitas'] = $this->identitas->updateIdentitas($id);
+        view('update', $data);
+    }
+
+    public function hapus() {
+       $data['page_title'] = 'Hapus identitas';
+       $data['identitas'] = $this->identitas->deleteIdentitas($id);
+       view('hapus', $data);
+    }
+
     public function save() {
         $data = $this->request->request->all();
         $this->identitas->insert($data);
