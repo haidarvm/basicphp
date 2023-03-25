@@ -17,9 +17,11 @@ class IdentitasController extends PublicController {
         view('identitas_list', $data);
     }
 
-    public function insert() {
+    public function detail() {
         $data['page_title'] = 'Data identitas';
-        view('identitas_form', $data);
+        $id = uri(2);
+        $data['identitas'] = $this->identitas->getIdentitas($id);
+        view('detail', $data);
     }
 
     public function save() {

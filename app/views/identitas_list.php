@@ -63,14 +63,12 @@ $awalData = (5 * 1) - 4;
     <tr>
         <td><?=$i;?></td>
         <td>
-            <a href="ubahpostgresql.php?id=<?=$row["id"];?>"><button type="button"
-                    class="btn btn-warning">Ubah</button></a>
+            <a href="ubah/<?=$row["id"];?>"><button type="button" class="btn btn-warning">Ubah</button></a>
 
-            <a href="hapuspostgresql.php?id=<?=$row["id"];?>" onclick="return confirm('yakin?');"><button type="button"
+            <a href="hapus/<?=$row["id"];?>" onclick="return confirm('yakin?');"><button type="button"
                     class="btn btn-danger">Hapus</button></a>
 
-            <a href="detailpostgresql.php?id=<?=$row["id"];?>"><button type="button"
-                    class="btn btn-secondary">Detail</button></a>
+            <a href="detail/<?=$row["id"];?>"><button type="button" class="btn btn-secondary">Detail</button></a>
         </td>
 
         <td><?=$row["nama"];?></td>
