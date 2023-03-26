@@ -10,6 +10,10 @@ class IdentitasController extends PublicController {
         $this->request = Request::createFromGlobals();
     }
 
+    public function paginate(){
+        
+    }
+
     public function index() {
         $data['page_title'] = 'identitas';
         $data['identitas'] = $this->identitas->getAll();

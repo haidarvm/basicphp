@@ -39,7 +39,35 @@ require_once 'template/header.php';?>
 
 
 <br></br>
+<?php
+// Menentukan Pagination
+$jumlahDataPerHalaman = 3;
+// $jumlahData = count $db->getDb();
+$halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
+$awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
+$result = mysqli_query($conn, "SELECT * FROM identitas LIMIT $awalData, $jumlahDataPerHalaman");
+?>
 
+<?php if ($halamanAktif > 1): ?>
+<a href="?halaman=<?=$halamanAktif - 1;?>"><button type="button" class="btn btn-outline-info">Previous</button></a>
+<?php endif;?>
+
+<!-- Navigasi -->
+<?php for ($i = 1; $i <= $jumlahHalaman; $i++): ?>
+<?php if ($i == $halamanAktif): ?>
+<a href="?halaman=<?=$i;?>"><button type="button" class="btn btn-outline-secondary"
+        style="font-weight: bold; color: red;"><?=$i;?></button></a>
+<?php else: ?>
+<a href="?halaman=<?=$i;?>"><button type="button" class="btn btn-outline-secondary"><?=$i;?></button></a>
+<?php endif;?>
+<?php endfor;?>
+
+<?php if ($halamanAktif < $jumlahHalaman): ?>
+<a href="?halaman=<?=$halamanAktif + 1;?>"><button type="button" class="btn btn-outline-info">Next</button></a>
+<?php endif;?>
+
+
+<br></br>
 <table class="table table-dark table-striped table-hover">
     <!-- Menampilkan Record/Field Database -->
 
@@ -53,11 +81,13 @@ require_once 'template/header.php';?>
     </tr>
 
     <?php
-    $halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
+    //$halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
 
-    $awalData = (5 * 1) - 4;
-    
-    $i = $awalData + 1;?>
+    //$awalData = (5 * 1) - 4;
+
+    //$i = $awalData + 1;
+    ?>
+
     <!-- Perintah untuk menampilkan data -->
     <?php foreach ($identitas as $row ): ?>
     <tr>

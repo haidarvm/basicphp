@@ -1,5 +1,6 @@
 <?php
 if (!empty($_POST)) {
+    print_r($_POST);
     if (!empty($_POST['nama'])) {
         // cek apakah data berhasil diubah atau tidak
         if ($db->updateIdentitas(uri(3), $_POST)) {
@@ -22,14 +23,14 @@ if (!empty($_POST)) {
 
 ?>
 <style>
-    body {
-        background-color: darkgray;
-    }
+body {
+    background-color: darkgray;
+}
 
-    .center {
-        margin-left: auto;
-        margin-right: auto;
-    }
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
 </style>
 
 <table border='3' class='center'>
@@ -51,7 +52,8 @@ if (!empty($_POST)) {
                 <h2> : </h2>
             </td>
             <td>
-                <h2><input type='text' name='nama' id='nama' autocomplete='off' required value="<?= $identitas['nama']; ?>">
+                <h2><input type='text' name='nama' id='nama' autocomplete='off' required
+                        value="<?= $identitas['nama']; ?>">
                 </h2>
             </td>
         </tr>
@@ -64,7 +66,8 @@ if (!empty($_POST)) {
                 <h2> : </h2>
             </td>
             <td>
-                <h2><input type='text' name='alamat' id='alamat' autocomplete='off' required value="<?= $identitas['alamat']; ?>">
+                <h2><input type='text' name='alamat' id='alamat' autocomplete='off' required
+                        value="<?= $identitas['alamat']; ?>">
                     <h2>
             </td>
         </tr>
@@ -77,13 +80,14 @@ if (!empty($_POST)) {
                 <h2> : </h2>
             </td>
             <td>
-                <h2><input type='text' name='email' id='email' autocomplete='off' required value="<?= $identitas['email']; ?>"></h2>
+                <h2><input type='text' name='email' id='email' autocomplete='off' required
+                        value="<?= $identitas['email']; ?>"></h2>
             </td>
         </tr>
 
         <tr>
             <td><label for='gambar'><button type='button' class='text-light bg-dark'>
-                    <h2>GAMBAR</h2>
+                        <h2>GAMBAR</h2>
                     </button></label></td>
             <td>
                 <h2> : </h2>
