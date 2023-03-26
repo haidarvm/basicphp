@@ -35,7 +35,6 @@ class IdentitasModel extends Db
         unset( $data[ 'submit' ] );
         $id = $data[ 'id' ];
         unset( $data[ 'id' ] );
-
         return $this->where( $id )->update( $data );
     }
 
