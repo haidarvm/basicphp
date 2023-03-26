@@ -61,4 +61,19 @@ class IdentitasController extends PublicController {
         $this->identitas->insert($data);
         header('Location: ' . base_url() . 'identitas');
     }
+
+    public function upload() {
+    $namaFile = $_FILES['gambar']['name'];
+    $ukuranFile = $_FILES['gambar']['size'];
+    $error = $_FILES['gambar']['error'];
+    $tmpName = $_FILES['gambar']['tmp_name'];
+
+    // Cek apakah tidak ada gambar yang diupload
+    if( $error === 4 ) {
+    echo "<script>
+            alert('Pilih Gambar Terlebih Dahulu!');
+          </script>";
+    return false;
+        }
+    }
 }
