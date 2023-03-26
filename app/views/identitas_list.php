@@ -63,13 +63,13 @@ require_once 'template/header.php';?>
     <tr>
         <td><?=$i;?></td>
         <td>
-            <a href="<?=base_url(). 'identitas/ubah'.$row["id"];?>"><button type="button"
+            <a href="<?=base_url(). 'identitas/ubah/'.$row["id"];?>"><button type="button"
                     class="btn btn-warning">Ubah</button></a>
 
-            <a href="<?=base_url(). 'identitas/hapus'.$row["id"];?>" onclick="return confirm('yakin?');"><button
+            <a href="<?=base_url(). 'identitas/hapus/'.$row["id"];?>" onclick="return confirm('yakin?');"><button
                     type="button" class="btn btn-danger">Hapus</button></a>
 
-            <a href="<?=base_url(). 'identitas/detail'.$row["id"];?>"><button type="button"
+            <a href="<?=base_url(). 'identitas/detail/'.$row["id"];?>"><button type="button"
                     class="btn btn-secondary">Detail</button></a>
         </td>
 
