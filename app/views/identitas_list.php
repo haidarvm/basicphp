@@ -7,14 +7,14 @@ if (!empty($_POST)) {
             echo "
         <script>
         alert('Database Berhasil Ditambahkan!');
-        document.location.href = 'identitas';
+        document.location.href = '" . base_url() . "'identitas';
         </script>
         ";
         } else {
             echo "
         <script>
         alert('Database Gagal Ditambahkan!');
-        document.location.href = 'identitas';
+        document.location.href = '" . base_url() . "'identitas';
         </script>
         ";
         }
