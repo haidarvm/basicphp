@@ -28,7 +28,7 @@ class IdentitasController extends PublicController {
         $data['page_title'] = 'Ubah identitas';
         $id = uri(3);
         $data['identitas'] = $this->identitas->getIdentitas($id);
-        // $data['identitas'] = $this->identitas->updateIdentitas($data, $id);
+        echo $id;
         view('update', $data);
     }
 
