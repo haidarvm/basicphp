@@ -9,14 +9,14 @@ if (!empty($_POST['nama'])) {
     echo "
     <script>
     alert('Database Berhasil Dihapus!');
-    document.location.href = 'identitas';
+    document.location.href = '" . base_url() . "'identitas';
     </script>
     ";
         } else {
     echo "
     <script>
     alert('Database Gagal Dihapus!');
-    document.location.href = 'identitas';
+    document.location.href = '" . base_url() . "'identitas';
     </script>
     ";
     }
