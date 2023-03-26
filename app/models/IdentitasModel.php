@@ -29,7 +29,7 @@ class IdentitasModel extends Db
         return $this->insertGetId( $data );
     }
 
-    public function updateIdentitas( $dat )
+    public function updateIdentitas( $data )
  {
         unset( $data[ 'submit' ] );
         $id = $data[ 'id' ];
