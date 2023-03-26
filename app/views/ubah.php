@@ -1,5 +1,4 @@
 <?php
-echo uri(3);
 if (!empty($_POST)) {
 
     if (!empty($_POST['nama'])) {
