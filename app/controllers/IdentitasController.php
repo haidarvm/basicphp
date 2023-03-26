@@ -29,7 +29,7 @@ class IdentitasController extends PublicController {
         $id = uri(3);
         $data['identitas'] = $this->identitas->getIdentitas($id);
         echo $id;
-        view('update', $data);
+        view('ubah', $data);
     }
 
     public function hapus() {
