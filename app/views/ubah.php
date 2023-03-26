@@ -1,9 +1,9 @@
 <?php
 if (!empty($_POST)) {
-    print_r($_POST);
     if (!empty($_POST['nama'])) {
         // cek apakah data berhasil diubah atau tidak
         if ($db->updateIdentitas(uri(3), $_POST)) {
+    print_r($_POST);
             echo "
         <script>
         alert('Database Berhasil Diubah!');
