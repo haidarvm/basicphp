@@ -11,6 +11,10 @@ class IdentitasController extends PublicController {
         $this->request = Request::createFromGlobals();
     }
 
+    public function paginate(){
+        
+    }
+
     public function index() {
         header('Location: ' . base_url() . 'identitas/page/0');
     }
@@ -39,6 +43,10 @@ class IdentitasController extends PublicController {
         $id = uri(3);
         $data['db'] = $this->identitas;
         $data['identitas'] = $this->identitas->getIdentitas($id);
+        if($this->request->request->all()) {
+            // print_r($this->request->request->all());
+            header('Location: ' . base_url() . 'identitas');
+        }
         view('ubah', $data);
     }
 
@@ -46,11 +54,6 @@ class IdentitasController extends PublicController {
         $id = uri(3);
         $this->identitas->deleteIdentitas($id);
         header('Location: ' . base_url() . 'identitas');
-        // $data['page_title'] = 'Hapus identitas';
-        // // $data['db'] = $this->identitas;
-        // $id = uri(3);
-        // $data['identitas'] = $this->identitas->deleteIdentitas($data);
-        // view('hapus', $data);
     }
 
     public function save() {

@@ -39,7 +39,12 @@ require_once 'template/header.php'; ?>
 
 
 <br></br>
-
+<div class="d-flex justify-content-center">
+    <nav aria-label="Page navigation example">
+        <?php echo ($paginator); ?>
+    </nav>
+</div>
+<br></br>
 <table class="table table-dark table-striped table-hover">
     <!-- Menampilkan Record/Field Database -->
 
@@ -52,14 +57,10 @@ require_once 'template/header.php'; ?>
         <th>GAMBAR</th>
     </tr>
 
-    <?php
-    $halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
-
-    $awalData = (5 * 1) - 4;
-
-    $i = $awalData + 1; ?>
     <!-- Perintah untuk menampilkan data -->
-    <?php foreach ($identitas as $row) : ?>
+    <?php 
+    $i =1;
+    foreach ($identitas as $row) : ?>
         <tr>
             <td><?= $i; ?></td>
             <td>
@@ -78,12 +79,6 @@ require_once 'template/header.php'; ?>
         <?php $i++; ?>
     <?php endforeach; ?>
 </table>
-
-<div class="d-flex justify-content-center">
-    <nav aria-label="Page navigation example">
-        <?php echo ($paginator); ?>
-    </nav>
-</div>
 
 <!-- CREATE DATABASE (TAMBAH DATABASE) -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Data

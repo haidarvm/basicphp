@@ -13,7 +13,7 @@ class IdentitasModel extends Db {
 
     public function getAllData($limit,$page = null) {
         $page_limit = ($page - 1) * $limit;
-        $data = $this->orderByDesc('id')->limit($limit); 
+        $data = $this->orderBy('id')->limit($limit); 
         return !empty($page) ? $data->offset($page_limit)->get() : $data->get();
     }
 
