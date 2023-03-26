@@ -30,7 +30,7 @@ class IdentitasModel extends Db {
     }
 
     public function deleteIdentitas($id) {
-        return false;
+        return $this->where($id)->delete();
     }
 
 }
