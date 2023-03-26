@@ -73,7 +73,7 @@ require_once 'template/header.php';?>
                     class="btn btn-secondary">Detail</button></a>
         </td>
 
-        <td><?=$row["nama"];?></td>
+        <td><?=$row["nama"]. $row['id'];?></td>
         <td><?=$row["alamat"];?></td>
         <td><?=$row["email"];?></td>
         <td><img src="imgpostgresql/<?php echo $row["gambar"]; ?>" width="70"></td>

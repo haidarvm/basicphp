@@ -37,7 +37,7 @@ body {
 <table border="3" class="center">
     <tr>
         <td><button type="button" class="text-light bg-dark">
-                <h1>DETAIL DATA IDENTITAS DIRI</h1>
+                <h1>UBAH DATA IDENTITAS DIRI</h1>
             </button>
         </td>
     </tr>
