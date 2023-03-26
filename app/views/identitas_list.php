@@ -71,7 +71,7 @@ require_once 'template/header.php'; ?>
                 <a href="<?= base_url() . 'identitas/detail/' . $row["id"]; ?>"><button type="button" class="btn btn-secondary">Detail</button></a>
             </td>
 
-            <td><?= $row["nama"] . $row['id']; ?></td>
+            <td><?= $row["nama"]; ?></td>
             <td><?= $row["alamat"]; ?></td>
             <td><?= $row["email"]; ?></td>
             <td><img src="imgpostgresql/<?php echo $row["gambar"]; ?>" width="70"></td>
