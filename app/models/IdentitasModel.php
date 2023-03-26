@@ -11,6 +11,19 @@ class IdentitasModel extends Db {
         return $this->get();
     }
 
+    public function getAllData($limit,$page = null) {
+        $page_limit = ($page - 1) * $limit;
+        $data = $this->orderByDesc('id')->limit($limit); 
+        return !empty($page) ? $data->offset($page_limit)->get() : $data->get();
+    }
+
+    public function getAllDataTotal($limit) {
+        // $limit = 3;
+        $data = $this->select($this->raw("count(DISTINCT id) as total"))->limit($limit); 
+        return  $data->first()->total;
+    }
+
+
     public function getDb() {
         return DB_NAME;
     }

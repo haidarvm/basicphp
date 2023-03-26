@@ -1,6 +1,4 @@
 <?php
-
-
 if (!empty($_POST)) {
 
     if (!empty($_POST['nama'])) {
@@ -24,16 +22,18 @@ if (!empty($_POST)) {
 }
 
 
-function css() {
-
-    
-    ?>
-<link rel="stylesheet" type="text/css" href="<?=URL; ?>assets/css/datatables.min.css">
-<style>
-</style>
+function css(){
+?>
+    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/datatables.min.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
 <?php
 }
-require_once 'template/header.php';?>
+require_once 'template/header.php'; ?>
 
 <h1 class="text-center text-light bg-dark">DAFTAR IDENTITAS DIRI</h1>
 
@@ -56,31 +56,34 @@ require_once 'template/header.php';?>
     $halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
 
     $awalData = (5 * 1) - 4;
-    
-    $i = $awalData + 1;?>
+
+    $i = $awalData + 1; ?>
     <!-- Perintah untuk menampilkan data -->
-    <?php foreach ($identitas as $row ): ?>
-    <tr>
-        <td><?=$i;?></td>
-        <td>
-            <a href="<?=base_url(). 'identitas/ubah/'.$row["id"];?>"><button type="button"
-                    class="btn btn-warning">Ubah</button></a>
+    <?php foreach ($identitas as $row) : ?>
+        <tr>
+            <td><?= $i; ?></td>
+            <td>
+                <a href="<?= base_url() . 'identitas/ubah/' . $row["id"]; ?>"><button type="button" class="btn btn-warning">Ubah</button></a>
 
-            <a href="<?=base_url(). 'identitas/hapus/'.$row["id"];?>" onclick="return confirm('yakin?');"><button
-                    type="button" class="btn btn-danger">Hapus</button></a>
+                <a href="<?= base_url() . 'identitas/hapus/' . $row["id"]; ?>" onclick="return confirm('yakin?');"><button type="button" class="btn btn-danger">Hapus</button></a>
 
-            <a href="<?=base_url(). 'identitas/detail/'.$row["id"];?>"><button type="button"
-                    class="btn btn-secondary">Detail</button></a>
-        </td>
+                <a href="<?= base_url() . 'identitas/detail/' . $row["id"]; ?>"><button type="button" class="btn btn-secondary">Detail</button></a>
+            </td>
 
-        <td><?=$row["nama"]. $row['id'];?></td>
-        <td><?=$row["alamat"];?></td>
-        <td><?=$row["email"];?></td>
-        <td><img src="imgpostgresql/<?php echo $row["gambar"]; ?>" width="70"></td>
-    </tr>
-    <?php $i++;?>
-    <?php endforeach;?>
+            <td><?= $row["nama"] . $row['id']; ?></td>
+            <td><?= $row["alamat"]; ?></td>
+            <td><?= $row["email"]; ?></td>
+            <td><img src="imgpostgresql/<?php echo $row["gambar"]; ?>" width="70"></td>
+        </tr>
+        <?php $i++; ?>
+    <?php endforeach; ?>
 </table>
+
+<div class="d-flex justify-content-center">
+    <nav aria-label="Page navigation example">
+        <?php echo ($paginator); ?>
+    </nav>
+</div>
 
 <!-- CREATE DATABASE (TAMBAH DATABASE) -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Data
@@ -148,13 +151,14 @@ echo '</tr>';
 echo '</table>';
 
 // Show Footer
-function javascript() {
-    ?>
-<script>
-var base_url = "<?=URL;?>";
-</script>
-<script src="<?=URL;?>assets/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" charset="utf8" src="<?=URL;?>assets/js/datatable.js"></script>
+function javascript()
+{
+?>
+    <script>
+        var base_url = "<?= URL; ?>";
+    </script>
+    <script src="<?= URL; ?>assets/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="<?= URL; ?>assets/js/datatable.js"></script>
 <?php
 }
 require_once 'template/footer.php';

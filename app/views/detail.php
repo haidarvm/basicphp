@@ -2,14 +2,7 @@
 require_once 'template/header.php';
 ?>
 <style>
-body {
-    background-color: darkgray;
-}
 
-.center {
-    margin-left: auto;
-    margin-right: auto;
-}
 </style>
 
 

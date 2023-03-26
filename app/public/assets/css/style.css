@@ -1,0 +1,56 @@
+
+
+body {
+    background-color: darkgray;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.color-text {
+    color: black;
+}
+
+.table-dark {
+    --bs-table-hover-bg: darkred;
+}
+
+.table1 {
+    font-family: sans-serif;
+    color: rgb(80, 80, 80);
+    border-collapse: collapse;
+    width: 50%;
+    border: 1px solid #ffffff;
+}
+
+.table1 tr th {
+    background: #282828;
+    color: rgb(255, 252, 252);
+    font-weight: normal;
+}
+
+.table1,
+th,
+td {
+    padding: 8px 20px;
+    text-align: center;
+}
+
+.table1 tr:hover {
+    background-color: #ffffff;
+}
+
+.table1 tr:nth-child(even) {
+    background-color: #404040;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text {
+    color: white;
+}

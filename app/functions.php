@@ -12,7 +12,9 @@ function view($file, $data) {
 function base_url_no() {
     return  rtrim(Basic::baseUrl(),"/");
 }
-
+function nullSearch($search) {
+    return !empty($search) ? $search : '0';
+}
 function checkVal($val =null, $key = null, $other=null) {
     $exval = explode('-', $val);
     // echo $exval[0]. $exval[1];exit;

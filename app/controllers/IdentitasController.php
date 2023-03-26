@@ -1,5 +1,6 @@
 <?php
 use Symfony\Component\HttpFoundation\Request;
+use JasonGrimes\Paginator;
 
 class IdentitasController extends PublicController {
     protected $identitas;
@@ -11,9 +12,18 @@ class IdentitasController extends PublicController {
     }
 
     public function index() {
+        header('Location: ' . base_url() . 'identitas/page/0');
+    }
+
+    public function page() {
         $data['page_title'] = 'identitas';
-        $data['identitas'] = $this->identitas->getAll();
         $data['db'] = $this->identitas;
+        $page = uri(3);
+        $limit = 3;
+        $data['identitas'] = $this->identitas->getAllData($limit,$page);
+        $data['total'] = $this->identitas->getAllDataTotal($limit);
+        $url_pattern = '/identitas/page/(:num)';
+        $data['paginator'] = new Paginator($data['total'], $limit, $page, $url_pattern);
         view('identitas_list', $data);
     }
 
