@@ -53,9 +53,9 @@ require_once 'template/header.php';?>
     </tr>
 
     <?php
-$halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
+    $halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
 
-$awalData = (5 * 1) - 4;
+    $awalData = (5 * 1) - 4;
     
     $i = $awalData + 1;?>
     <!-- Perintah untuk menampilkan data -->

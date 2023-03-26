@@ -26,6 +26,7 @@ class IdentitasController extends PublicController {
 
     public function ubah() {
         $data['page_title'] = 'Ubah identitas';
+        $id = uri(3);
         $data['identitas'] = $this->identitas->updateIdentitas($id);
         view('update', $data);
     }
