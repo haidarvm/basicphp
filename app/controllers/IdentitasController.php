@@ -1,6 +1,6 @@
 <?php
 use Symfony\Component\HttpFoundation\Request;
-use JasonGrimes\Paginator;
+use Paginator;
 
 class IdentitasController extends PublicController {
     protected $identitas;
