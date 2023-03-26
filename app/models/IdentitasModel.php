@@ -6,6 +6,7 @@ class IdentitasModel extends Db
  {
     public $table = 'identitas';
     public $primaryKey = 'id';
+    public $timestamps = false;
 
     public function getAll()
  {
