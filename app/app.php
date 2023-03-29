@@ -10,7 +10,10 @@ $ini = parse_ini_file(__DIR__ . '/../config.ini');
 define('URL_PROTOCOL', '//');
 define('URL_DOMAIN', $_SERVER['HTTP_HOST']);
 define('CONF', __DIR__.'/../config.ini' );
+define('PATH_UPLOAD', __DIR__.'/public/images/' );
+
 define('URL', URL_PROTOCOL . URL_DOMAIN.'/');
+define('PATH_IMG', 'public/images/' );
 define('DB_DRIVER', $ini['db_driver']); // Sample database name
 define('DB_HOST', $ini['db_host']); // Sample database name
 define('DB_NAME', $ini['db_name']); // Sample database name

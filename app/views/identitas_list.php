@@ -1,36 +1,20 @@
 <?php
-if (!empty($_POST)) {
 
-    if (!empty($_POST['nama'])) {
-        // cek apakah data berhasil ditambahkan atau tidak
-        if ($db->insertIdentitas($_POST) > 0) {
-            echo "
-        <script>
-        alert('Database Berhasil Ditambahkan!');
-        document.location.href = '" . base_url() . "'identitas';
-        </script>
-        ";
-        } else {
-            echo "
-        <script>
-        alert('Database Gagal Ditambahkan!');
-        document.location.href = '" . base_url() . "'identitas';
-        </script>
-        ";
-        }
-    }
+if(!empty($alert)) {
+    echo '<script language="javascript">';
+        echo "alert('Database Berhasil Ditambahkan!')";
+        "document.location.href = '" . base_url() . "'identitas/page/1'";
+        echo '</script>';
 }
-
-
-function css(){
+function css()
+{
 ?>
-    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/datatables.min.css">
-    <style>
-        body {
-            background-color: black;
-            color: white;
-        }
-    </style>
+<style>
+body {
+    background-color: black;
+    color: white;
+}
+</style>
 <?php
 }
 require_once 'template/header.php'; ?>
@@ -58,25 +42,28 @@ require_once 'template/header.php'; ?>
     </tr>
 
     <!-- Perintah untuk menampilkan data -->
-    <?php 
-    $i =1;
+    <?php
+    $i = !empty($page) ? ($page -1) * $limit : 1;
     foreach ($identitas as $row) : ?>
-        <tr>
-            <td><?= $i; ?></td>
-            <td>
-                <a href="<?= base_url() . 'identitas/ubah/' . $row["id"]; ?>"><button type="button" class="btn btn-warning">Ubah</button></a>
+    <tr>
+        <td><?= $i; ?></td>
+        <td>
+            <a href="<?= base_url() . 'identitas/ubah/' . $row["id"]; ?>"><button type="button"
+                    class="btn btn-warning">Ubah</button></a>
 
-                <a href="<?= base_url() . 'identitas/hapus/' . $row["id"]; ?>" onclick="return confirm('yakin?');"><button type="button" class="btn btn-danger">Hapus</button></a>
+            <a href="<?= base_url() . 'identitas/hapus/' . $row["id"]; ?>" onclick="return confirm('yakin?');"><button
+                    type="button" class="btn btn-danger">Hapus</button></a>
 
-                <a href="<?= base_url() . 'identitas/detail/' . $row["id"]; ?>"><button type="button" class="btn btn-secondary">Detail</button></a>
-            </td>
+            <a href="<?= base_url() . 'identitas/detail/' . $row["id"]; ?>"><button type="button"
+                    class="btn btn-secondary">Detail</button></a>
+        </td>
 
-            <td><?= $row["nama"]; ?></td>
-            <td><?= $row["alamat"]; ?></td>
-            <td><?= $row["email"]; ?></td>
-            <td><img src="imgpostgresql/<?php echo $row["gambar"]; ?>" width="70"></td>
-        </tr>
-        <?php $i++; ?>
+        <td><?= $row["nama"]; ?></td>
+        <td><?= $row["alamat"]; ?></td>
+        <td><?= $row["email"]; ?></td>
+        <td><img src="<?php echo base_url(). 'images/'. $row["gambar"]; ?>" width="70"></td>
+    </tr>
+    <?php $i++; ?>
     <?php endforeach; ?>
 </table>
 
@@ -96,7 +83,7 @@ require_once 'template/header.php'; ?>
             </div>
             <div class="modal-body">
 
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="<?=base_url(). 'identitas/insert';?>" method="post" enctype="multipart/form-data">
                     <table class="table">
                         <tr>
                             <td><button type="button" class="btn btn-success">NAMA</button></td>
@@ -122,7 +109,7 @@ require_once 'template/header.php'; ?>
                     </table>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" name="submit">Tambah</button>
+                        <button type="submit" class="btn btn-primary">Tambah</button>
                     </div>
 
                 </form>
@@ -133,8 +120,6 @@ require_once 'template/header.php'; ?>
 </div>
 
 <?php
-echo "Nama Database adalah " . $db->getDb();
-echo 'Nama Table Database adalah ' . $db->getTable();
 
 echo '<table style="width:30%" class="text center table1">';
 echo '<tr>';
@@ -145,15 +130,9 @@ echo '<td>' . $db->getTable() . '</td>';
 echo '</tr>';
 echo '</table>';
 
-// Show Footer
 function javascript()
 {
 ?>
-    <script>
-        var base_url = "<?= URL; ?>";
-    </script>
-    <script src="<?= URL; ?>assets/js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="<?= URL; ?>assets/js/datatable.js"></script>
 <?php
 }
 require_once 'template/footer.php';

@@ -1,24 +1,4 @@
 <?php
-if (!empty($_POST)) {
-    if (!empty($_POST['nama'])) {
-        // cek apakah data berhasil diubah atau tidak
-        if ($db->updateIdentitas(uri(3), $_POST)) {
-            echo "
-        <script>
-        alert('Database Berhasil Diubah!');
-        document.location.href = '" . base_url() . "'identitas';
-        </script>
-        ";
-        } else {
-        echo "
-        <script>
-        alert('Database Gagal Diubah!');
-        document.location.href = '" . base_url() . "'identitas';
-        </script>
-        ";
-        }
-    }
-}
 require_once 'template/header.php'; ?>
 <table border='3' class='center'>
     <tr>
@@ -29,7 +9,7 @@ require_once 'template/header.php'; ?>
     </tr>
 </table>
 <br></br>
-<form action='' method='post' enctype='multipart/form-data'>
+<form action='<?=base_url(). 'identitas/update';?>' method='post' enctype='multipart/form-data'>
     <table border='6' class='center'>
         <tr>
             <td><label for='nama'><button type='button' class='text-light bg-dark'>
@@ -78,7 +58,7 @@ require_once 'template/header.php'; ?>
                     </button></label></td>
             <td>
                 <h2> : </h2>
-            <td><img src=" imgpostgresql/<?= $identitas['gambar']; ?>" width='80'> <br></br>
+            <td><img src="<?= base_url(). 'images/'.$identitas['gambar']; ?>" width='200'> <br></br>
                 <input type='file' name='gambar' id='gambar' autocomplete='off' value="<?= $identitas['gambar']; ?>">
             </td>
         </tr>
@@ -87,7 +67,8 @@ require_once 'template/header.php'; ?>
         <br></br>
         <br></br>
         <tr>
-            <td colspan='3'><button type='submit' name='submit' class='btn btn-warning'>
+            <input type="hidden" name="id" value="<?=$identitas->id;?>"
+            <td colspan='3'><button type='submit' class='btn btn-warning'>
                     <h2>UBAH DATA!<h2>
                 </button></td>
         </tr>

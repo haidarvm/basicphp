@@ -1,6 +1,7 @@
 <?php
 use Symfony\Component\HttpFoundation\Request;
-use Paginator;
+
+// use Paginator;
 
 class IdentitasController extends PublicController {
     protected $identitas;
@@ -11,20 +12,25 @@ class IdentitasController extends PublicController {
         $this->request = Request::createFromGlobals();
     }
 
-    public function paginate(){
-        
+    public function paginate() {
     }
 
     public function index() {
         header('Location: ' . base_url() . 'identitas/page/0');
     }
 
-    public function page() {
+    public function page($alert = null) {
         $data['page_title'] = 'identitas';
         $data['db'] = $this->identitas;
         $page = uri(3);
+        $data['page'] = uri(3);
         $limit = 3;
-        $data['identitas'] = $this->identitas->getAllData($limit,$page);
+        $data['limit'] = 3;
+        if (!empty($alert)) {
+            $data['alert'] = $alert;
+        }
+        $data['identitas'] = $this->identitas->getAllData($limit, $page);
+        $data['request'] = $this->request;
         $data['total'] = $this->identitas->getAllDataTotal($limit);
         $url_pattern = '/identitas/page/(:num)';
         $data['paginator'] = new Paginator($data['total'], $limit, $page, $url_pattern);
@@ -43,7 +49,7 @@ class IdentitasController extends PublicController {
         $id = uri(3);
         $data['db'] = $this->identitas;
         $data['identitas'] = $this->identitas->getIdentitas($id);
-        if($this->request->request->all()) {
+        if ($this->request->request->all()) {
             // print_r($this->request->request->all());
             header('Location: ' . base_url() . 'identitas');
         }
@@ -56,24 +62,19 @@ class IdentitasController extends PublicController {
         header('Location: ' . base_url() . 'identitas');
     }
 
-    public function save() {
-        $data = $this->request->request->all();
-        $this->identitas->insert($data);
-        header('Location: ' . base_url() . 'identitas');
+    public function insert() {
+        $insert_id = $this->identitas->insertIdentitas($this->request);
+        if ($insert_id) {
+            $alert = 'alerting';
+            $this->page($alert);
+        }
     }
 
-    public function upload() {
-    $namaFile = $_FILES['gambar']['name'];
-    $ukuranFile = $_FILES['gambar']['size'];
-    $error = $_FILES['gambar']['error'];
-    $tmpName = $_FILES['gambar']['tmp_name'];
-
-    // Cek apakah tidak ada gambar yang diupload
-    if( $error === 4 ) {
-    echo "<script>
-            alert('Pilih Gambar Terlebih Dahulu!');
-          </script>";
-    return false;
+    public function update() {
+        $insert_id = $this->identitas->updateIdentitas($this->request);
+        if ($insert_id) {
+            $alert = 'alerting';
+            $this->page($alert);
         }
     }
 }
