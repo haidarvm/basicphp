@@ -57,9 +57,9 @@ require_once 'template/header.php';
                     <h2>GAMBAR</h2>
                 </button></label></td>
         <td>
-            <h2> : </h2>
-        <td><img src="imgpostgresql/<?=$identitas['gambar'];?>" width="80"> <br></br>
-        </td>
+            <h2> : </h2>            
+            <td><img src="<?= base_url(). 'images/'.$identitas['gambar']; ?>" width='200'> <br></br>
+
     </tr>
 </table>
 <?php
