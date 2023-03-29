@@ -1,5 +1,5 @@
 /logs
 config.ini
-/vendor
+vendor
 composer.lock
-/app/public/images
+app/public/images
