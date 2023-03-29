@@ -1,2 +1,0 @@
-2023/03/22 19:29:00 [error] 53238#53238: *1 "/usr/share/pmin/index.php" is not found (2: No such file or directory), client: 127.0.0.1, server: basic.test, request: "GET /pmin/ HTTP/1.1", host: "localhost"
-2023/03/22 19:29:02 [error] 53238#53238: *1 "/usr/share/pmin/index.php" is not found (2: No such file or directory), client: 127.0.0.1, server: basic.test, request: "GET /pmin/ HTTP/1.1", host: "localhost"
