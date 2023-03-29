@@ -1,6 +1,6 @@
 <?php
 
-use Symfony\Component\HttpFoundation\Request;
+use \Gumlet\ImageResize;
 
 class IdentitasModel extends Db {
     public $table = 'identitas';
@@ -55,6 +55,12 @@ class IdentitasModel extends Db {
             foreach ($data->files as $file) {
                 if (!empty($filename)) {
                     $file->move(PATH_UPLOAD, $filename);
+                    $imgpath = PATH_UPLOAD. $filename;
+                    $kualitas = 50;
+                    $image = new ImageResize($imgpath);
+                    $image->quality_jpg = $kualitas;
+                    $image->scale(50);
+                    $image->save($imgpath);
                 }
             }
         }
