@@ -57,15 +57,11 @@ require_once 'template/header.php';
                     <h2>GAMBAR</h2>
                 </button></label></td>
         <td>
-<<<<<<< HEAD
-            <h2> : </h2>            
-            <td><img src="<?= base_url(). 'images/'.$identitas['gambar']; ?>" width='200'> <br></br>
-
-=======
             <h2> : </h2>
-        <td><img src="<?= base_url(). 'images/'.$identitas['gambar']; ?>" width='200'> <br></br>
         </td>
->>>>>>> 4c7d21eebb694b78ce1edfd571be079413a4343d
+        <td>
+            <img src="<?= base_url(). 'images/'.$identitas['gambar']; ?>" width='200'> <br></br>
+        </td>
     </tr>
 </table>
 <?php
