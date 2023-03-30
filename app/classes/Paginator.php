@@ -281,7 +281,7 @@ class Paginator
 
         $html = '<ul class="pagination">';
         if ($this->getPrevUrl()) {
-            $html .= '<li class="btn btn-outline-info"><a href="' . htmlspecialchars($this->getPrevUrl()) . $this->previousText .'</a></li>';
+            $html .= '<li class="page-item"><a class="page-link" href="' . htmlspecialchars($this->getPrevUrl()) . '">&laquo; '. $this->previousText .'</a></li>';
         }
 
         foreach ($this->getPages() as $page) {
