@@ -1,6 +1,8 @@
 <?php
-require_once 'template/header.php'; ?>
-<table border='3' class='center'>
+require_once 'template/header.php'; 
+?>
+
+<table border='1' class='center'>
     <tr>
         <td><button type='button' class='text-light bg-dark'>
                 <h1>UBAH DATA IDENTITAS DIRI</h1>
@@ -8,9 +10,11 @@ require_once 'template/header.php'; ?>
         </td>
     </tr>
 </table>
+
 <br></br>
+
 <form action='<?=base_url(). 'identitas/update';?>' method='post' enctype='multipart/form-data'>
-    <table border='6' class='center'>
+    <table border='2' class='center'>
         <tr>
             <td><label for='nama'><button type='button' class='text-light bg-dark'>
                         <h2>NAMA</h2>
@@ -63,6 +67,7 @@ require_once 'template/header.php'; ?>
             </td>
         </tr>
     </table>
+
     <table border='4' class='center'>
         <br></br>
         <br></br>
@@ -74,5 +79,6 @@ require_once 'template/header.php'; ?>
         </tr>
     </table>
 </form>
+
 <?php
 require_once 'template/footer.php';
