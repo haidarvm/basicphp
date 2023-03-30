@@ -2,7 +2,7 @@
 require_once 'template/header.php'; 
 ?>
 
-<table border='3' class='center'>
+<table border='3 class=' center'>
     <tr>
         <td><button type='button' class='text-light bg-dark'>
                 <h1>UBAH DATA IDENTITAS DIRI</h1>
@@ -72,9 +72,10 @@ require_once 'template/header.php';
         <br></br>
         <br></br>
         <tr>
-            <td colspan='3'><button type='submit' class='btn btn-warning'>
-                    <h2>UBAH DATA!<h2>
-                </button></td>
+            <input type="hidden" name="id" value="<?=$identitas->id;?>" <td colspan='3'><button type='submit'
+                class='btn btn-warning'>
+                <h2>UBAH DATA!<h2>
+            </button></td>
         </tr>
     </table>
 </form>
