@@ -122,6 +122,9 @@ require_once 'template/header.php';
 
 <?php
 
+echo 'Nama Database adalah'. $db->getDb();
+echo 'Nama Table Database adalah'. $db->getTable();
+
 echo '<table style="width:30%" class="text center table1">';
 echo '<tr>';
 echo '<th>' . $db->getDb() . '</th>';
