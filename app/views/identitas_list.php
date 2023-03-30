@@ -1,5 +1,4 @@
 <?php
-
 if(!empty($alert)) {
     echo '<script language="javascript">';
         echo "alert('Database Berhasil Ditambahkan!')";
@@ -9,28 +8,32 @@ if(!empty($alert)) {
 function css()
 {
 ?>
+
 <style>
 body {
     background-color: black;
     color: white;
 }
 </style>
+
 <?php
 }
-require_once 'template/header.php'; ?>
+require_once 'template/header.php';
+?>
 
 <h1 class="text-center text-light bg-dark">DAFTAR IDENTITAS DIRI</h1>
 
-
 <br></br>
+
 <div class="d-flex justify-content-center">
     <nav aria-label="Page navigation example">
         <?php echo ($paginator); ?>
     </nav>
 </div>
+
 <br></br>
+
 <table class="table table-dark table-striped table-hover">
-    <!-- Menampilkan Record/Field Database -->
 
     <tr>
         <th>N0.</th>
@@ -111,9 +114,7 @@ require_once 'template/header.php'; ?>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Tambah</button>
                     </div>
-
                 </form>
-
             </div>
         </div>
     </div>
@@ -133,6 +134,7 @@ echo '</table>';
 function javascript()
 {
 ?>
+
 <?php
 }
 require_once 'template/footer.php';
