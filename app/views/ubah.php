@@ -9,7 +9,7 @@ require_once 'template/header.php';
 }
 </style>
 
-<table border='3 class=' center'>
+<table border='3' class='center'>
     <tr>
         <td><button type='button' class='text-light bg-dark'>
                 <h1>UBAH DATA IDENTITAS DIRI</h1>
