@@ -49,7 +49,7 @@ require_once 'template/header.php';
     $i = !empty($page) ? ($page - 1) * $limit : 1;
     foreach ($identitas as $row) : ?>
     <tr>
-        <td><?= $i; ?></td>
+        <td><?= $i + 1; ?></td>
         <td>
             <a href="<?= base_url() . 'identitas/ubah/' . $row["id"]; ?>"><button type="button"
                     class="btn btn-warning">Ubah</button></a>
