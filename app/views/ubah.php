@@ -2,7 +2,7 @@
 require_once 'template/header.php'; 
 ?>
 
-<table border='1' class='center'>
+<table border='3' class='center'>
     <tr>
         <td><button type='button' class='text-light bg-dark'>
                 <h1>UBAH DATA IDENTITAS DIRI</h1>
@@ -14,7 +14,7 @@ require_once 'template/header.php';
 <br></br>
 
 <form action='<?=base_url(). 'identitas/update';?>' method='post' enctype='multipart/form-data'>
-    <table border='2' class='center'>
+    <table border='6' class='center'>
         <tr>
             <td><label for='nama'><button type='button' class='text-light bg-dark'>
                         <h2>NAMA</h2>
