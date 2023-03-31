@@ -17,4 +17,4 @@
 
 </head>
 
-<!-- <body style="text-align:center"> -->
+<body style="text-align:center">
