@@ -1,6 +1,6 @@
 <?php
 if(!empty($alert)){
-    if($id) {
+    //if($id) {
     echo '<script language="javascript">';
         echo "alert('Database Berhasil Ditambahkan!')";
         //"document.location.href = '" . base_url() . "'identitas/page/1'";
@@ -10,7 +10,6 @@ if(!empty($alert)){
         echo "alert('Database Berhasil Diubah!')";
         "document.location.href = '" . base_url() . "'identitas/page/1'";
         echo '</script>';   
-}
 }
 function css()
 {
