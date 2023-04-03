@@ -29,7 +29,7 @@ require_once 'template/header.php';
 
 <br></br>
 
-<form action='<?' identitas/update';?>' method='post' enctype='multipart/form-data'>
+<form action='<?base_url().' identitas/update';?>' method='post' enctype='multipart/form-data'>
     <table border='6' class='center'>
         <tr>
             <td><label for='nama'><button type='button' class='text-light bg-dark'>
