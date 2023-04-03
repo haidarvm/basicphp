@@ -75,9 +75,9 @@ require_once 'template/header.php';
         </tr>
     </table>
 
-    <table border='4' class='center'>
-        <br></br>
-        <br></br>
+    <br></br>
+    <br></br>
+    <table border='3' class='center'>
         <tr>
             <input type="hidden" name="id" value="<?=$identitas->id;?>" <td colspan='3'><button type='submit'
                 class='btn btn-warning'>
