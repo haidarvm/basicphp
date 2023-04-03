@@ -74,16 +74,19 @@ require_once 'template/header.php';
             </td>
         </tr>
     </table>
+
+    <table border='4' class='center'>
+        <br></br>
+        <br></br>
+        <tr>
+            <input type="hidden" name="id" value="<?=$identitas->id;?>" <td colspan='3'><button type='submit'
+                class='btn btn-warning'>
+                <h2>UBAH DATA!<h2>
+            </button></td>
+        </tr>
+    </table>
 </form>
 
-<br></br>
-<br></br>
-<table border='3' class='center'>
-    <input type="hidden" name="id" value="<?=$identitas->id;?>" <td colspan='3'><button type='submit'
-        class='btn btn-warning'>
-        <h2>UBAH DATA!<h2>
-    </button></td>
-</table>
 
 <?php
 require_once 'template/footer.php';
