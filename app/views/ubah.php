@@ -1,13 +1,4 @@
 <?php
-if(!empty($alert)) {
-    echo '<script language="javascript">';
-        echo "alert('Database Berhasil Diubah!')";
-        "document.location.href = '" . "'identitas/page/1'";
-}
-?>
-
-
-<?php
 require_once 'template/header.php'; 
 ?>
 
