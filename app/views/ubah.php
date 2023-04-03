@@ -29,7 +29,7 @@ require_once 'template/header.php';
 
 <br></br>
 
-<form action='<?base_url().' identitas/update';?>' method='post' enctype='multipart/form-data'>
+<form action="<?base_url() . 'identitas/update';?>" method='post' enctype='multipart/form-data'>
     <table border='6' class='center'>
         <tr>
             <td><label for='nama'><button type='button' class='text-light bg-dark'>
@@ -40,7 +40,7 @@ require_once 'template/header.php';
             </td>
             <td>
                 <h2><input type='text' name='nama' id='nama' autocomplete='off' required
-                        value="<?= $identitas['nama']; ?>">
+                        value=" <?= $identitas['nama']; ?>">
                 </h2>
             </td>
         </tr>
