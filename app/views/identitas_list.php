@@ -85,7 +85,7 @@ require_once 'template/header.php';
             </div>
             <div class="modal-body">
 
-                <form action="<?=base_url(). 'identitas/insert';?>" method="post" enctype="multipart/form-data">
+                <form action='<?=base_url().' identitas/insert';?>" method="post" enctype="multipart/form-data">
                     <table class="table">
                         <tr>
                             <td><button type="button" class="btn btn-success">NAMA</button></td>
