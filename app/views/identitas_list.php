@@ -1,9 +1,13 @@
 <?php
 if(!empty($alert)) {
     echo '<script language="javascript">';
+    if($id){
         echo "alert('Database Berhasil Ditambahkan!')";
+        "document.location.href = '"."'identitas/page/1'";
+    } else {
+        echo "alert('Database Berhasil Diubah!')";
         "document.location.href = '" . base_url() . "'identitas/page/1'";
-        echo '</script>';
+    }
 }
 function css()
 {
