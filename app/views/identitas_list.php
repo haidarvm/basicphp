@@ -1,8 +1,9 @@
 <?php
 if(!empty($alert)) {
     echo '<script language="javascript">';
-        "alert('Database Berhasil Ditambahkan!')";
+        echo "alert('Database Berhasil Ditambahkan!')";
         "document.location.href = '" . base_url() . "'identitas/page/1'";
+        echo '</script>';
 }
 function css()
 {
