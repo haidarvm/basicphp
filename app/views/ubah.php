@@ -79,10 +79,10 @@ require_once 'template/header.php';
         <br></br>
         <br></br>
         <tr>
-            <input type="hidden" name="id" value="<?=$identitas->id;?>" <td colspan='3'><button type='submit'
-                class='btn btn-warning'>
-                <h2>UBAH DATA!<h2>
-            </button></td>
+            <input type="hidden" name="id" value="<?=$identitas->id;?>">
+            <td colspan='3'><button type='submit' class='btn btn-warning'>
+                    <h2>UBAH DATA!<h2>
+                </button></td>
         </tr>
     </table>
 </form>
