@@ -2,12 +2,12 @@
 if(!empty($alert)){
     echo '<script language="javascript">';
         echo "alert('Database Berhasil Ditambahkan!')";
-        "document.location.href = 'identitas_list.php" . "'identitas/insert'";
+        "document.location.href = 'identitas_list.php'" . "'identitas/page/1'";
         echo '</script>';
     }else{
     echo '<script language="javascript">';
         echo "alert('Database Berhasil Diubah!')";
-        "document.location.href = '". "'identitas/update'";
+        "document.location.href = '". base_url(). "'identitas/ubah/1'";
         echo '</script>'; 
     }
 function css()
