@@ -1,6 +1,5 @@
 <?php
 if(!empty($alert)){
-    if($id){
     echo '<script language="javascript">';
         echo "alert('Database Berhasil Ditambahkan!')";
         "document.location.href = 'identitas_list.php" . "'identitas/insert'";
@@ -8,10 +7,9 @@ if(!empty($alert)){
     }else{
     echo '<script language="javascript">';
         echo "alert('Database Berhasil Diubah!')";
-        "document.location.href = '" . base_url() . "'identitas/update'";
+        "document.location.href = '". "'identitas/update'";
         echo '</script>'; 
     }
-}
 function css()
 {
 ?>
