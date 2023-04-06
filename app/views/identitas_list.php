@@ -1,17 +1,15 @@
 <?php
 if(!empty($alert)){
-    if($id) {
     echo '<script language="javascript">';
         echo "alert('Database Berhasil Ditambahkan!')";
-        "document.location.href = '" . base_url() . "'identitas/insert'";
+        "document.location.href = 'identitas_list.php" . base_url() . "'identitas/insert'";
         echo '</script>';
     }else{
     echo '<script language="javascript">';
         echo "alert('Database Berhasil Diubah!')";
-        "document.location.href = '" . base_url() . "'identitas/update'";
+        "document.location.href = 'ubah.php'" . base_url() . "'identitas/update'";
         echo '</script>'; 
     }
-}
 function css()
 {
 ?>
