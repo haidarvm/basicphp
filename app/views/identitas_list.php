@@ -7,7 +7,7 @@ if(!empty($alert)){
     }else{
     echo '<script language="javascript">';
         echo "alert('Database Berhasil Diubah!')";
-        "document.location.href = 'ubah.php'" . base_url() . "'identitas/update'";
+        "document.location.href = 'ubah.php'";
         echo '</script>'; 
     }
 function css()
