@@ -1,5 +1,5 @@
 <?php
-if(empty($alert)){
+if(!empty($alert)){
     echo '<script language="javascript">';
         echo "alert('Database Berhasil Ditambahkan!')";
         "document.location.href = '" . base_url(). "'identitas/page/1'";
