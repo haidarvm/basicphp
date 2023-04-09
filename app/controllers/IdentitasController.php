@@ -65,7 +65,7 @@ class IdentitasController extends PublicController {
     public function insert() {
         $insert_id = $this->identitas->insertIdentitas($this->request);
         if ($insert_id) {
-            $alert = 'alerting';
+            $alert = 'insert';
             $this->page($alert);
         }
     }
@@ -73,7 +73,7 @@ class IdentitasController extends PublicController {
     public function update() {
         $insert_id = $this->identitas->updateIdentitas($this->request);
         if ($insert_id) {
-            $alert = 'alerting';
+            $alert = 'update';
             $this->page($alert);
         }
     }
