@@ -1,12 +1,7 @@
 <?php
 if(!empty($alert)){
-    if($alert=='update') {
-        $message = 'Diubah';
-    } else {
-        $message = "Ditambahkan";
-    }
     echo '<script language="javascript">';
-        echo "alert('Database Berhasil ".$message."!')";
+        echo "alert('Database Berhasil ".$alert."!')";
         "document.location.href = '" . base_url(). "'identitas/page/1'";
         echo '</script>';
     }

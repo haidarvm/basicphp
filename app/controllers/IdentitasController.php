@@ -16,14 +16,14 @@ class IdentitasController extends PublicController {
     }
 
     public function index() {
-        header('Location: ' . base_url() . 'identitas/page/0');
+        header('Location: ' . base_url() . 'identitas/page/1');
     }
 
-    public function page($alert = null) {
+    public function page($alert = null, $page_uri = null) {
         $data['page_title'] = 'identitas';
         $data['db'] = $this->identitas;
-        $page = uri(3);
-        $data['page'] = uri(3);
+        $page = !empty($page_uri) ? $page_uri : uri(3);
+        $data['page'] = $page;
         $limit = 3;
         $data['limit'] = 3;
         if (!empty($alert)) {
@@ -59,22 +59,25 @@ class IdentitasController extends PublicController {
     public function hapus() {
         $id = uri(3);
         $this->identitas->deleteIdentitas($id);
-        header('Location: ' . base_url() . 'identitas');
+        if ($id) {
+            $alert = 'Dihapus';
+            $this->page($alert,1);
+        }
     }
 
     public function insert() {
         $insert_id = $this->identitas->insertIdentitas($this->request);
         if ($insert_id) {
-            $alert = 'insert';
-            $this->page($alert);
+            $alert = 'Ditambahkan';
+            $this->page($alert,1);
         }
     }
 
     public function update() {
         $insert_id = $this->identitas->updateIdentitas($this->request);
         if ($insert_id) {
-            $alert = 'update';
-            $this->page($alert);
+            $alert = 'Diubah';
+            $this->page($alert,1);
         }
     }
 }
