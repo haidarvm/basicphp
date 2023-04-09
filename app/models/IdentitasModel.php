@@ -42,7 +42,9 @@ class IdentitasModel extends Db {
 
     public function updateIdentitas($post) {
         $data = $post->request->all();
-        $data['gambar'] = $this->upload($post);
+        if (!empty($_FILES['gambar']['name'])) {
+            $data['gambar'] = $this->upload($post);
+        }
         $id = $data['id'];
         unset($data['id']);
         return $this->where('id', $id)->update($data);
