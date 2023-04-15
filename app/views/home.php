@@ -66,7 +66,7 @@
     </tr>
 
     <tr>
-      <td style="text-align:center;"><a href="<?=base_url()?>mariadb">
+      <td style="text-align:center;"><a href="<?=base_url()?>mariadb/indexmariadb.php">
           <button type="button" class="btn btn-secondary">
             <h2>MariaDB</h2>
           </button></a>
