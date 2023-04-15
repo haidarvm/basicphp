@@ -5,6 +5,9 @@
 | Configuration - Constants and Variables
 |--------------------------------------------------------------------------
 */
+session_start();
+$db_driver = !empty($_SESSION['db_driver']) ? $_SESSION['db_driver'] : 'pgsql';
+$db_user = !empty($_SESSION['db_user']) ? $_SESSION['db_user'] : 'postgres';
 $ini = parse_ini_file(__DIR__ . '/../config.ini');
 
 define('URL_PROTOCOL', '//');
@@ -14,10 +17,10 @@ define('PATH_UPLOAD', __DIR__.'/public/images/' );
 
 define('URL', URL_PROTOCOL . URL_DOMAIN.'/');
 define('PATH_IMG', 'public/images/' );
-define('DB_DRIVER', $ini['db_driver']); // Sample database name
+define('DB_DRIVER', $db_driver); // Sample database name
 define('DB_HOST', $ini['db_host']); // Sample database name
 define('DB_NAME', $ini['db_name']); // Sample database name
-define('DB_USER',  $ini['db_user']); // Sample database username
+define('DB_USER',  $db_user); // Sample database username
 define('DB_PASS', $ini['db_pass']); // Sample database password
 define('DB_PREFIX', $ini['db_prefix']); // Sample database prefix
 
@@ -63,10 +66,16 @@ Basic::setAutoRoute(); // Automatic '/class/method' routing
 */
 
 Basic::route('GET', '/', function() { // Set homepage
-    header('Location: ' . base_url() . 'identitas');
-    // $home = new HomeController;
-    // $home->index();
+    // header('Location: ' . base_url() . '/');
+    $home = new HomeController;
+    $home->index();
 });
+
+// Basic::route('GET', '/', function() { // Set homepage
+//     header('Location: ' . base_url() . 'identitas');
+//     // $home = new HomeController;
+//     // $home->index();
+// });
 
 Basic::route('GET', '/haidar', function() { // Set homepage
     $data = ['name' => 'haidar'];
@@ -78,10 +87,6 @@ Basic::route('GET', '/logout', function(){ // Set homepage
     $auth->logout();
 });
 
-Basic::route('GET', '/', function () { // Set homepage
-    $page_title = 'Starter Application';
-    Basic::view('home', compact('page_title'));
-});
 
 Basic::route('ANY', '/api/jsonrpc', function () {
     Basic::setJsonRpc(); // JSON-RPC endpoint
